@@ -1,0 +1,130 @@
+
+
+.modalBtn{
+    z-index: -1;
+   
+color: #575757;
+border-radius: 12px;
+
+}
+
+.overlay{
+   
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.modalContainer{
+
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    background-color: #fff;
+    z-index: 3;
+    border: 2px solid rgb(239, 239, 239);
+    
+    box-shadow: 5px 5px 5px rgba(10, 10, 10, 0.5);
+}
+
+.imgModal{
+    width: 250px;
+   object-fit: cover;
+}
+.modalRight{
+    width: 100%;
+   
+}
+.closeBtn{
+    position:absolute;
+    top: 8px;
+    right: 8px;
+    
+
+}
+.bold{
+    font-weight: bold;
+}
+
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+}
+.btnContainer{
+    display: flex;
+   padding: 1rem 1rem;
+   
+}
+.btnContainer button{
+    margin: .5rem;
+    width: 100%;
+    padding: 16px 0 ;
+    border: none;
+    color: #ffffff;
+}
+.btnOutline:hover{
+    background-color: #03343a;
+}
+.btnPrimary{
+    background-color: #00bcd4;
+    border-radius: 10px;
+}
+.btnOutline{
+   background-color: rgb(16, 116, 237);
+   border-radius: 10px;
+   border: none;
+   width: 50%;
+   padding: 5px 0;
+}
+
+.radioStarBtn{
+    display: none;
+    
+}
+.star{
+cursor: pointer;  
+transition: color 200ms;
+}
+
+.inputModal{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 90%;
+}
+
+
+
+@media screen and (max-width: 500px){
+    .modalContainer{
+
+        flex-direction: column;
+        top: 7%;
+        left: 0;
+        transform: none !important;
+        width: 100%;
+        height:100vh;
+      
+    }
+
+    .imgModal{
+        width: 100%;
+       
+    }
+
+    .closeBtn{
+       color: #ffffff;
+
+    }
+
+}

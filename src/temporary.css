@@ -1,0 +1,38 @@
+#MarkerImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 30%;
+    border: 2px solid rgb(10, 139, 238);
+}
+#mapSearch{
+    width: 80%;
+    height: 30vh;
+   
+    border: 2px solid rgb(239, 239, 239);
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    margin: auto;
+    margin-top: 10px;
+    z-index: 1;
+}
+.mapBtn{
+    background-color: dodgerblue;
+    border-radius:10px !important;
+    color: aliceblue;
+    width: 30% !important;
+}
+.inputSearchHome{
+    width:50% !important;
+}
+.c-form.c-form--search{
+    width: 40% !important;
+}
+
+
+@media screen and (max-width: 500px){
+    .inputSearchHome{
+        width:100% !important;
+    }
+    .c-form.c-form--search{
+        width: 90% !important;
+    }
+}

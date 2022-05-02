@@ -1,0 +1,241 @@
+.maincontent{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 200px;
+   
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    width:90%;
+}
+.main_filter{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 200px;
+    background-color: blue;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+    width:15%;
+    z-index: 4;
+}
+.Sbul_menus{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10% !important;
+}
+ 
+
+.sideMenuHome{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    border: 2px solid rgb(239, 239, 239);
+    border-radius: 10px;
+   
+    width:12%;
+   
+}
+.lastAds_secte{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+   
+    width:100%;
+   
+
+}
+.cont_submenu{
+   
+    margin: auto;
+
+    display: flexbox;
+    flex-direction: row;
+   
+    
+   border: 2px solid rgb(239, 239, 239);
+    border-radius: 10px;
+    width: 98%;
+   
+
+}
+
+.lastAds_title{
+   
+    color: #525151;
+    font-size: 30px;
+    margin-top: 10px;
+   
+    background-color: rgb(218, 244, 254);
+}
+
+.link_submenu{
+    text-decoration: none;
+    color: #525151;
+    justify-content: center;
+    align-items: center;
+}
+.sectforcardss{
+    
+    max-height: 19%;
+    
+    width:100%;
+   
+}
+#bodys{
+    margin-top: 30px;
+}
+
+
+.connAside{
+    margin-bottom: 50px;
+}
+.connected_aside{
+
+    border: 2px solid rgb(239, 239, 239);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    margin-bottom:5px;
+    width: 150%;
+
+}
+.connected_aside_cat{
+    border: 2px solid rgb(239, 239, 239);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    width: 150%;
+    z-index: 4;
+}
+
+
+@media screen and (min-width: 1000px){
+
+    .sectforcardss{
+    
+        max-height: 19%;
+        background-color: #f8f86200;
+        width:100%;
+       
+    }
+   
+    .ads-cardss{
+        width:20%;
+        max-height: 19%;
+        background:white;
+        border-radius: 10px;
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+        box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+        cursor: pointer;
+    }
+    .searchBarhome{
+        margin-top: 10px;
+        
+    }
+   
+  
+  }
+
+  @media screen and (max-width: 500px){
+
+
+    .link_submenu_firstLetter{
+
+        /*FAIRE un background de couleur vert rond  et la lettre color white */
+        background-color: #02f637;
+        color: white;
+        border-radius: 30px;
+        padding:0 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+        cursor: pointer;
+        text-decoration: none;
+        
+    }
+  
+
+ 
+.maincontent{   
+    display: flex;
+    flex-direction: column;
+    
+}
+  
+    #bodys{
+       display: none;
+    }
+    .sectforcardss{
+    
+        max-height: 20%;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .contversionHomeaside{
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+       
+
+       
+    }
+    .connected_aside{
+    
+        border: none;
+        box-shadow: 0px 0px 0px rgb(0 0 0 / 12%);
+        width: 100%;
+    
+    }
+    .connected_aside_cat{
+        border: none;
+        box-shadow: 0px 0px 0px rgb(0 0 0 / 12%);
+        width: 100%;
+        margin-top:2px ;
+        margin-bottom: 5px !important;
+        border: 2px solid rgb(239, 239, 239);
+    }
+  
+    .profil_aside{
+        
+    
+        border: 2px solid rgb(239, 239, 239);
+        border-radius: 5px;
+        margin-top:2px ;
+        box-shadow: 5px 5px 5px rgb(225, 241, 249);
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        padding:5px 0px !important;  
+        
+      }
+      .profil_aside_cat{
+      
+        border: 2px solid rgb(239, 239, 239);
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        margin-top:2px ;
+        box-shadow: 5px 5px 5px rgb(225, 241, 249);
+        width: 100%;
+        padding:5px 2px !important;
+        
+      
+      }
+
+ 
+
+  }

@@ -1,0 +1,114 @@
+#main-slider-container{
+    width: 70%;
+    height: 120%;
+   margin-left: 18%;
+}
+
+#slider{
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;/* pour firefox*/
+    scroll-behavior: smooth;
+    
+}
+.slider-card-image{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(71, 193, 22, 0.8);
+    
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+
+#slider::-webkit-scrollbar{
+    display: none;
+}
+svg.slider-icon.left,svg.slider-icon.right{
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+   
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+    opacity: 0.5;
+    
+   
+}
+
+svg.slider-icon.left{
+    left: 0;
+
+}
+
+svg.slider-icon.right{
+    right: 0;
+ 
+}
+
+svg.slider-icon.left:hover,svg.slider-icon.right:hover{
+    opacity: 1;
+    
+   
+}
+
+.prisonslider{
+
+    width: 58%;
+    
+    position: absolute;
+    margin-left: 14%;
+    margin-top:5%;
+    
+  
+    
+}
+.slider-card{
+    width:20%;
+    height: 120%;
+    background:rgb(6, 6, 6);
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+    cursor: pointer;
+    
+
+}
+
+.slider-card-title, .slider-card-description{
+   margin: 5px 0px 5px 10px;
+}
+.slider-card-title{
+   
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 10px;
+    color: white;
+}
+
+.slider-card-description{
+    opacity: 0.5;
+    font-size: 11px;
+    color: white;
+}
+
+.imgsliderhome{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+
+.title_slider_home{
+    float: left;
+
+}
+
+
+@media screen and (max-width: 500px){
+
+    #main-slider-container{display: none;}
+}
+
+

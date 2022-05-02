@@ -1,0 +1,106 @@
+.ads-card{
+    max-width:280px;
+    min-width: 270px;
+    height: 265px;
+    background:white;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 9px;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+    cursor: pointer;
+
+}
+
+.ads-card-image{
+    width: 100%;
+    height: 130px;
+    background-color: rgb(240 240 240 / 80%);
+    
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+
+.ads-card-title{
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.ads-card-description{
+    font-size: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.sectforcards{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    
+   
+}
+.iconsearch{
+    position: absolute;
+    color: antiquewhite;
+    padding: 3px;
+}
+.divider-cat{
+    display: block;
+}
+
+.profil_aside_jski{
+    
+    border: 2px solid rgb(239, 239, 239);
+    border-radius: 5px;
+    margin-top:5px ;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    width: 90%;
+    margin-left: 5%;
+    padding:5px 0px !important;
+    flex-direction: row;
+   
+
+}
+.profil_aside_cat_jski{
+    border: 2px solid rgb(239, 239, 239);
+    border-radius: 5px;
+    margin-top:5px ;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    width: 90%;
+    margin-left: 5%;
+    padding:5px 0px !important;  
+
+}
+.ads-card-date{
+    font-size: 9px;
+    float: left;
+    margin-left: 5px;
+   
+    
+}
+.ads-card-city{
+    font-size: 10px;
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 2px;
+    color: gray;
+   
+    
+}
+
+.imgsads{
+
+    width: 100%;
+    height: 130px;
+    background-color: rgb(240 240 240 / 80%);
+    
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
