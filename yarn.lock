@@ -1069,6 +1069,11 @@
   "resolved" "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   "version" "0.2.3"
 
+"@bundled-es-modules/message-format@6.0.4":
+  "integrity" "sha512-NGUoPxqsBzDwvRhY3A3L/AhS1hzS9OWappfyDOyCwE7G3W4ua28gau7QwvJz7QzA6ArbAdeb8c1mLjvd1WUFAA=="
+  "resolved" "https://registry.npmjs.org/@bundled-es-modules/message-format/-/message-format-6.0.4.tgz"
+  "version" "6.0.4"
+
 "@csstools/normalize.css@*":
   "integrity" "sha512-M0qqxAcwCsIVfpFQSlGN5XjXWu8l5JDZN+fPt1LeW5SZexQTgnaEvgXAY+CeygRw0EeppWHi12JxESWiWrB0Sg=="
   "resolved" "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-12.0.0.tgz"
@@ -1488,6 +1493,53 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@lion/core@^0.22.0":
+  "integrity" "sha512-qgIRqp77UtMFi9PDxS6EE5xT6djqJ6qWNKur08mnKNNIg9NtVUeGSpSLGuMeZs+lI1To+n9/DrOsbSpJ0xUKIQ=="
+  "resolved" "https://registry.npmjs.org/@lion/core/-/core-0.22.0.tgz"
+  "version" "0.22.0"
+  dependencies:
+    "@open-wc/dedupe-mixin" "^1.3.0"
+    "@open-wc/scoped-elements" "^2.1.1"
+    "lit" "^2.0.2"
+
+"@lion/form-core@^0.17.0":
+  "integrity" "sha512-YSe/BcbY9TCTlW4Ua3FPUpvXpIrm3nxtPjoPGd6zk6Gg35uUgTxTwlnlA6gBGAiQgod/qdM29KEOzM+KnhWYsg=="
+  "resolved" "https://registry.npmjs.org/@lion/form-core/-/form-core-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@lion/core" "^0.22.0"
+    "@lion/localize" "^0.24.0"
+
+"@lion/input-range@^0.12.0":
+  "integrity" "sha512-Zimw0pnzOwvDLW/VTV/TVDFZWL8IaDDm6e7UFOSbBJcAuvulx1L4MHeKIm9Mm0NOVi1msBcNkGb8o/DpmJ2GEQ=="
+  "resolved" "https://registry.npmjs.org/@lion/input-range/-/input-range-0.12.0.tgz"
+  "version" "0.12.0"
+  dependencies:
+    "@lion/core" "^0.22.0"
+    "@lion/input" "^0.17.0"
+    "@lion/localize" "^0.24.0"
+
+"@lion/input@^0.17.0":
+  "integrity" "sha512-8r3qDAI/qIf5EIMNCl8yacB4e2e5EM8RJJaRCFlJM9EJPihiBJ2YdozQPLMyiUM+JDzfsSGKCdO6WICn+7lc6g=="
+  "resolved" "https://registry.npmjs.org/@lion/input/-/input-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@lion/form-core" "^0.17.0"
+
+"@lion/localize@^0.24.0":
+  "integrity" "sha512-LVTiupjMJFHNblJiw2naKWyxw8J8yw7F4ftywbasrYu0ejlGpqWFsI1jINY7oMGGnlgYUPSuu7NFpiyUsOsuvg=="
+  "resolved" "https://registry.npmjs.org/@lion/localize/-/localize-0.24.0.tgz"
+  "version" "0.24.0"
+  dependencies:
+    "@bundled-es-modules/message-format" "6.0.4"
+    "@lion/core" "^0.22.0"
+    "singleton-manager" "^1.4.3"
+
+"@lit/reactive-element@^1.0.0", "@lit/reactive-element@^1.3.0":
+  "integrity" "sha512-A2e18XzPMrIh35nhIdE4uoqRzoIpEU5vZYuQN4S3Ee1zkGdYC27DP12pewbw/RLgPHzaE4kx/YqxMzebOpm0dA=="
+  "resolved" "https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-1.3.2.tgz"
+  "version" "1.3.2"
+
 "@mapbox/point-geometry@^0.1.0":
   "integrity" "sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI="
   "resolved" "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz"
@@ -1513,6 +1565,19 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
+
+"@open-wc/dedupe-mixin@^1.3.0":
+  "integrity" "sha512-UfdK1MPnR6T7f3svzzYBfu3qBkkZ/KsPhcpc3JYhsUY4hbpwNF9wEQtD4Z+/mRqMTJrKg++YSxIxE0FBhY3RIw=="
+  "resolved" "https://registry.npmjs.org/@open-wc/dedupe-mixin/-/dedupe-mixin-1.3.0.tgz"
+  "version" "1.3.0"
+
+"@open-wc/scoped-elements@^2.1.1":
+  "integrity" "sha512-qQAtVIK2H1oUIM2oSrCBnf1+ZGHd2nIowt1tete+Dn9rNXIogAMJlUBY/R1NR9MuuJvQ1MeFjgQoDmb05TUdkw=="
+  "resolved" "https://registry.npmjs.org/@open-wc/scoped-elements/-/scoped-elements-2.1.1.tgz"
+  "version" "2.1.1"
+  dependencies:
+    "@lit/reactive-element" "^1.0.0"
+    "@open-wc/dedupe-mixin" "^1.3.0"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   "integrity" "sha512-RbG7h6TuP6nFFYKJwbcToA1rjC1FyPg25NR2noAZ0vKI+la01KTSRPkuVPE+U88jXv7javx2JHglUcL1MHcshQ=="
@@ -6016,6 +6081,30 @@
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"
   "version" "1.2.4"
 
+"lit-element@^3.2.0":
+  "integrity" "sha512-HbE7yt2SnUtg5DCrWt028oaU4D5F4k/1cntAFHTkzY8ZIa8N0Wmu92PxSxucsQSOXlODFrICkQ5x/tEshKi13g=="
+  "resolved" "https://registry.npmjs.org/lit-element/-/lit-element-3.2.0.tgz"
+  "version" "3.2.0"
+  dependencies:
+    "@lit/reactive-element" "^1.3.0"
+    "lit-html" "^2.2.0"
+
+"lit-html@^2.2.0":
+  "integrity" "sha512-vI4j3eWwtQaR8q/O63juZVliBIFMio716X719/lSsGH4UWPy2/7Qf377jsNs4cx3gCHgIbx8yxFgXFQ/igZyXQ=="
+  "resolved" "https://registry.npmjs.org/lit-html/-/lit-html-2.2.3.tgz"
+  "version" "2.2.3"
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+"lit@^2.0.2":
+  "integrity" "sha512-5/v+r9dH3Pw/o0rhp/qYk3ERvOUclNF31bWb0FiW6MPgwdQIr+/KCt/p3zcd8aPl8lIGnxdGrVcZA+gWS6oFOQ=="
+  "resolved" "https://registry.npmjs.org/lit/-/lit-2.2.3.tgz"
+  "version" "2.2.3"
+  dependencies:
+    "@lit/reactive-element" "^1.3.0"
+    "lit-element" "^3.2.0"
+    "lit-html" "^2.2.0"
+
 "loader-runner@^4.2.0":
   "integrity" "sha512-92+huvxMvYlMzMt0iIOukcwYBFpkYJdpl2xsZ7LrlayO7E8SOv+JJUEK17B/dJIHAOLMfh2dZZ/Y18WgmGtYNw=="
   "resolved" "https://registry.npmjs.org/loader-runner/-/loader-runner-4.2.0.tgz"
@@ -8097,6 +8186,11 @@
   "integrity" "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ=="
   "resolved" "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   "version" "3.0.7"
+
+"singleton-manager@^1.4.3":
+  "integrity" "sha512-Jy1Ib9cO9xCQ6UZ/vyFOqqWMnSpfZ8/Sc2vme944aWsCLO+lMPiFG9kGZGpyiRT9maYeI0JyZH1CGgjmkSN8VA=="
+  "resolved" "https://registry.npmjs.org/singleton-manager/-/singleton-manager-1.4.3.tgz"
+  "version" "1.4.3"
 
 "sisteransi@^1.0.5":
   "integrity" "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="

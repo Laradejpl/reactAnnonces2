@@ -9,12 +9,13 @@ import GoogleMapReact from 'google-map-react';
 import '../home.css';
 import '../temporary.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds} from '../api/annonce';
+import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds,getAdsByPrice} from '../api/annonce';
 import axios from 'axios';
 import ReactCardSlider from './ReactCardSlider';
 import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
+
 
 
 
@@ -45,6 +46,7 @@ const Jetboat = (props) => {
 
        const [totalAds, setTotalAds] = useState(0);
 	   const [lastAds, setLastAds] = useState([]);
+	   const [adsBtwPrice, setAdsBtwPrice] = useState([]);
 	   const [toggleMenu, setToggleMenu] = useState(false)
 	   const [position, setPosition] = useState(defaultProps.center)
 	   const [zoom, setZoom] = useState(defaultProps.zoom)
@@ -238,6 +240,7 @@ updateClickAds(locals.id)
 		
 
 	},[])
+
 
 
 
@@ -546,10 +549,10 @@ updateClickAds(ads.id)
 
 						{( screenWidth > 500) && (
 <aside className='main_filter'>
+{/* un input range ente le prix Min et LE PRIX max*/}
 
 
-
-
+							
 </aside>
 						)}
 

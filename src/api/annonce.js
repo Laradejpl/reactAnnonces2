@@ -242,5 +242,31 @@ export const deleteAd = (id) => {
         );
     }
 
+    //avoir les annonces entre deux prix
+    export const getAdsByPrice = (datas) => {
+        return axios.post(config.api_url + "/api/v1/ads/price", datas)
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
+
+     //avoir toute les annonces  entre deux prix et category et marque
+        export const getAdsByPriceAndCat = (datas) => {
+            return axios.post(config.api_url + '/api/v1/ads/price/category/marque', datas)
+            .then(response => {
+                return response.data;
+            }
+            )
+            .catch(error => {
+                return error;
+            }
+            );
+        }
+
 
 
