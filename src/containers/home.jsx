@@ -1,5 +1,8 @@
 import React, { useState, useEffect , useRef} from 'react';
 import logo from '../assets/pharelogo.png'
+import modalimg from '../assets/voilier.png'
+import cookieImg from '../assets/cookimg.png'
+
 import Connected from './connected';
 import Categories from './categories';
 import {categorys} from '../helpers/category';
@@ -10,11 +13,14 @@ import '../home.css';
 import '../temporary.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds,getAdsByPrice} from '../api/annonce';
+import {updateCooks} from '../api/user';
 import axios from 'axios';
 import ReactCardSlider from './ReactCardSlider';
 import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
+import '../Modal.css'
+
 
 
 
@@ -65,6 +71,10 @@ const Jetboat = (props) => {
 	   const [initialUser, setInitialUser] = useState("")
 
 	   const [idAds, setIdAds] = useState(0)
+	   const [openModal, setOpenModal] = useState(false);
+	   const [msg, setMsg] = useState('');
+	   const [trueCookie, setTrueCookie] = useState(false);
+	  
 	   
 
 	   const handleCurrentValue = () => {
@@ -72,15 +82,95 @@ const Jetboat = (props) => {
 		   setKeywordValue(searchingInput.current.value)
 	   }
 	   
+  //LES COOKIES
+
+  const setCookie = (cname, cvalue, exdays) => {
+	  	let d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		let expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
 
 
+ 
+  //LES COOKIES					
+
+//Modal
+
+const Modal = ({open,onClose}) => {
+  
+	if(!open) return null  
+  return (
+	<div onClick={onClose} className='overlay'>
+		<div onClick={(e)=>{e.stopPropagation()}} 
+		 className='modalContainer'>
+			<img className='imgModal' src={cookieImg} alt=".. " />
+		  <div  className="modalRight">
+		   <p onClick={onClose} className='closeBtn'>X</p>
+			
+			<div className="modalContent">
+  
+				 <h5>Bienvenue sur le Phare</h5>
+				 <div className="divider"></div>
+				 <p className='txt_cookie'>Afin de vous fournir la meilleure expérience possible, nous utilisons des cookies et d'autres technologies similaires dans un but de performance, de statistiques, de personnalisation, de publicité et pour aider le site à fonctionner.  	</p>
+				  
+				 <div className="divider"></div>
+				 <div className='row_cont'>
+				 <button className='mapBtn' onClick={
+					 //onClose
+					 ()=>{
+						 updateCooks(user.infos.id)
+						 setCookie("user",user.infos.lastName,5)
+		                 setCookie("userFirstName",user.infos.firstName,5)
+		                 setCookie("userId",user.infos.id,5)
+		                 setCookie("userEmail",user.infos.email,5)
+		                 setCookie("userPhone",user.infos.phone,5)
+		                 setCookie("userAddress",user.infos.address,5)
+		                 setCookie("userCity",user.infos.city,5)
+		                 setCookie("userZipCode",user.infos.zipCode,5)
+						 onClose()
+
+
+					 }
+					
+
+					 }>Acceptez</button>
+				 <button className='mapBtn_red' onClick={
+					 ()=>{
+						 updateCooks(user.infos.id)
+						 setCookie("user","",5)
+		                 setCookie("userFirstName","",5)
+		                 setCookie("userId","",5)
+		                 setCookie("userEmail","",5)
+		                 setCookie("userPhone","",5)
+		                 setCookie("userAddress","",5)
+		                 setCookie("userCity","",5)
+		                 setCookie("userZipCode","",5)
+						 onClose()
+					 } 						
+					 
+					 }>Non</button>
+
+				 </div>
+  
+			</div>
+	  
+		  </div> 
+		</div>
+	</div>
+  )
+  }
+  
+  useEffect(() => {
+	   setOpenModal(true)
+  }, [])
 
 	   useEffect(()=>{
-        mygeoloc()
+	            mygeoloc()
     }, [position])
     
     const mygeoloc = ()=>{
-        console.log("coucou")
+        
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
 			 	
@@ -197,7 +287,8 @@ updateClickAds(locals.id)
 	
 	
 	  useEffect(() => {
-	
+
+		
 		const changeWidth = () => {
 		  setScreenWidth(window.innerWidth);
 		}
@@ -209,6 +300,8 @@ updateClickAds(locals.id)
 		}
 	
 	  }, [])
+
+	 
 
      	// le nombre total d'annonces
 	useEffect(()=>{
@@ -235,9 +328,18 @@ updateClickAds(locals.id)
 	},[])
 
 	useEffect(()=>{
+
+
+		setCookie("user",user.infos.lastName,5)
+		setCookie("userFirstName",user.infos.firstName,5)
+		setCookie("userId",user.infos.id,5)
+		setCookie("userEmail",user.infos.email,5)
+		setCookie("userPhone",user.infos.phone,5)
+		setCookie("userAddress",user.infos.address,5)
+		setCookie("userCity",user.infos.city,5)
+		setCookie("userZipCode",user.infos.zipCode,5)
 		
-		
-		
+	
 
 	},[])
 
@@ -249,6 +351,8 @@ updateClickAds(locals.id)
 
 	const Submenu = (props) => {
 		return (
+
+
 		  <div className='nav_Sub_menu'>
 			  {/* sous menu comprenant des boutons : annonces,category,user,avis */}
 			<ul className='Sbul_menus'>
@@ -300,6 +404,11 @@ updateClickAds(locals.id)
 
     return (
        <main className='main_home'>
+	  {user.infos.cooks === 0 && (
+
+		<Modal open={openModal} onClose={()=>{ 
+		  setOpenModal(false)
+		 }} /> )} 
 	  
         <header className='homeheader'>
         <img src={logo} alt="logo application" className="logohome"/>
@@ -497,7 +606,7 @@ updateClickAds(ad.id)
 					  <CloudinaryContext cloudName="dehjoundt">
 					   <div className='ads-card-image' onClick={()=>{
 
-updateClickAds(ads.id)
+   updateClickAds(ads.id)
 	  .then((res)=>{
 		console.log(res);
 
@@ -558,6 +667,8 @@ updateClickAds(ads.id)
 
 
         </section>
+
+		
 
    
           

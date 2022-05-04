@@ -3,8 +3,8 @@ import modalimg from '../assets/voilier.png'
 import '../Modal.css'
 
 
- const Modal = ({open,onClose}) => {
-
+ const Modal = (props,{open,onClose}) => {
+      const { mess,paragraphe } = props
     if(!open) return null  
   return (
     <div onClick={onClose} className='overlay'>
@@ -18,9 +18,9 @@ import '../Modal.css'
 
                 
                 
-                 <h5>Message</h5>
+                 <h5>{mess}</h5>
                  <div className="divider"></div>
-                 <p>vous avez bien enregistrez votre note</p>
+                 <p>{paragraphe}</p>
                   
 
 

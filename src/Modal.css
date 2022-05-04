@@ -28,6 +28,7 @@ border-radius: 12px;
     background-color: #fff;
     z-index: 3;
     border: 2px solid rgb(239, 239, 239);
+    border-radius: 20px;
     
     box-shadow: 5px 5px 5px rgba(10, 10, 10, 0.5);
 }
@@ -35,6 +36,7 @@ border-radius: 12px;
 .imgModal{
     width: 250px;
    object-fit: cover;
+   border-radius: 20px;
 }
 .modalRight{
     width: 100%;
@@ -119,6 +121,7 @@ transition: color 200ms;
 
     .imgModal{
         width: 100%;
+        border-radius: 0px !important;
        
     }
 

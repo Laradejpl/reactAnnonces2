@@ -78,6 +78,15 @@ const Categories = (props)=>{
                             )}
   
                           </div>
+
+                          <div className='container_cat_inter'>
+                          <li><Link to="/semirigide"  className="profile_link">Semi-Rigide</Link></li>
+                          {( screenWidth > 500) && (
+                                    <div className='divider'></div>
+  
+                            )}
+  
+                          </div>
                           
                           <div className='container_cat_inter'>
                           <li><Link to="/accessoires"  className="profile_link">Accessoires</Link></li>
@@ -90,6 +99,15 @@ const Categories = (props)=>{
                           
                           <div className='container_cat_inter'>
                           <li><Link to="/service"  className="profile_link">Service</Link></li>
+                          {( screenWidth > 500) && (
+                                    <div className='divider'></div>
+  
+                            )}
+  
+                          </div>
+
+                          <div className='container_cat_inter'>
+                          <li><Link to="/port"  className="profile_link">Place de Port</Link></li>
                           {( screenWidth > 500) && (
                                     <div className='divider'></div>
   

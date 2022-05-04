@@ -123,6 +123,9 @@ const Detail = (props)=>{
     
    const showModal = () => {
     setOpenModal(true);
+    	  setTimeout(() => {
+		  setOpenModal(false);
+	  }, 5000);
     
   };
 
@@ -165,7 +168,7 @@ const Detail = (props)=>{
 //Modal
 
 const Modal = ({open,onClose}) => {
-
+  
   if(!open) return null  
 return (
   <div onClick={onClose} className='overlay'>

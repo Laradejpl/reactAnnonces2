@@ -3,6 +3,24 @@
   text-align: center;
   
 }
+.row_cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+.mapBtn_red{
+  background-color: #e69292;
+  border-radius: 10px;
+  border: none;
+  width: 20%;
+  color: #f1f1f1;
+  padding: 5px 0;
+} 
 .titleAdmin{
   background-color: #ffffff;
   width: 90%;

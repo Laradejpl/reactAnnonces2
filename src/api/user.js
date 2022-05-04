@@ -72,4 +72,14 @@ export const deleteUser = async (id) => {
     }
 }
 
+//update le nombre de cooks
+export const updateCooks = async (id) => {
+    try {
+        const response = await axios.put(config.api_url + '/api/v1/user/updateCooks/' + id);
+        return response.data;
+    } catch (err) {
+        return err;
+    }
+}
+
 
