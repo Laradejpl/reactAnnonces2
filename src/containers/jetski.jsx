@@ -31,8 +31,8 @@ const [rangevalMax, setRangevalMax] = useState(100000);
 const [rangevalMin, setRangevalMin] = useState(0);
 const [marque, setMarque] = useState('');
 const [searchActiv, setSearchActiv] = useState(false);
-const [msg, setMsg] = useState('');
-const [openModal, setOpenModal] = useState(false);
+const [Message, setMessage] = useState('');
+
 
 
 
@@ -70,34 +70,7 @@ useEffect(()=>{
 },[])
 
 //LES FONCTIONS 
-const Modal = ({open,onClose}) => {
-	
-  if(!open) return null  
-return (
-  <div onClick={onClose} className='overlay'>
-	  <div onClick={(e)=>{e.stopPropagation()}} 
-	   className='modalContainer'>
-		  <img className='imgModal' src={logo} alt=".. " />
-		<div  className="modalRight">
-		 <p onClick={onClose} className='closeBtn'>X</p>
-		  
-		  <div className="modalContent">
 
-			  
-			  
-			   <h5>Message</h5>
-			   <div className="divider"></div>
-			   <p>{msg}</p>
-				
-
-
-		  </div>
-	
-		</div> 
-	  </div>
-  </div>
-)
-}
 
  //avoir toute les annonces  entre deux prix et category et marque
 const onSubmitForm = () => {
@@ -112,12 +85,14 @@ const onSubmitForm = () => {
 		.then((res) => {
 			setAnnoncesByPrice(res.result)
 			setSearchActiv(true)
-			//openModal(true)
+			console.log(" annonces trouvées",res.result.length)
+			setTotalAdsCat(res.result.length)
+		
 			if(res.result.length===0){
 				//setVoidAds(true)
 				setSearchActiv(false)
-				openModal(true)
-				setMsg('Aucune annonce ne correspond à votre recherche')
+				
+				setMessage('Aucune annonce ne correspond à votre recherche')
 			}
 			
 
@@ -125,7 +100,7 @@ const onSubmitForm = () => {
 		})
 		.catch((err) => {
 			console.log(err);
-			setMsg("Aucune annonce ne correspond à votre recherche");
+			setMessage("Aucune annonce ne correspond à votre recherche");
 		})
 }
 
@@ -137,14 +112,16 @@ const onSubmitForm = () => {
 
     return (
         <main className='main_home'>
-		 <Modal open={openModal} onClose={()=> setOpenModal(false)} />  
+		  
 		  <header className='homeheader'>
 		  <img src={jetskimg} alt="logo application" className="logohome"/>
 			<h1 className='titlehome'>Jetski</h1>
 			<p>Plus qu'un bateau une monture puissante</p>
 		  </header>
+		  {totalAdsCat>0? <div className='totalAds'>{`Nous avons ${totalAdsCat} Annonces`}</div>:<div className='totalAds_red'>{`Nous n'avons aucune annonce pour le moment qui correspond à la recherche`}</div>}
 		  
-		  <div className='totalAds'>{`Nous avons ${totalAdsCat} Annonces`}</div>
+
+
 		  <h2> les meilleurs  Jetski d'occasion</h2>
 		  <div className='divider'></div>
 		  <div className='filtre'>

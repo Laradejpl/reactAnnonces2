@@ -67,6 +67,7 @@ const Login = (props)=>{
 	                
 				<input 
 					type="text" 
+                    required
 					placeholder="Votre Mail"
 					onChange={(e)=>{
 						setEmail(e.currentTarget.value)
@@ -75,6 +76,7 @@ const Login = (props)=>{
                
 				<input 
 					type="password" 
+                    required
 					placeholder="Votre Mot de passe"
 					onChange={(e)=>{
 						setPassword(e.currentTarget.value)
@@ -84,7 +86,7 @@ const Login = (props)=>{
 			
 				<input type="submit" name="Enregister" className="buttonsbmt"/>
                 <div>
-                    <Link to="/register" className='linkforgot'>Oublie du mot passe</Link>
+                    <Link to="/forgot" className='linkforgot'>Oublie du mot passe</Link>
                 </div>
 	       </form>
            </div>

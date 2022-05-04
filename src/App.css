@@ -1,6 +1,7 @@
 .container{}
 .App {
   text-align: center;
+  margin: auto;
   
 }
 .row_cont{
@@ -12,6 +13,24 @@
   margin: 5 auto;
   width: 100%;
   max-width: 1200px;
+}
+.row_cont_center{
+  margin-top: 20px;
+ 
+}
+.link_forgot{
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main_forget_cont{
+  height: 600px;
+  margin-top: 80px;
 }
 .mapBtn_red{
   background-color: #e69292;
@@ -139,6 +158,20 @@
   background-color: rgb(43, 119, 226);
   box-shadow: 5px 5px 5px rgb(225, 241, 249);
 }
+
+.totalAds_red{
+  width: 30%;
+  margin:  auto;
+  margin-top: 1%;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 15px;
+  color: #f1f1f1;
+  border: 1px solid rgb(210, 6, 20);
+  background-color: rgb(253, 153, 175);
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+}
+
 
 
 
@@ -372,7 +405,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a62178ba', e
   background:dodgerblue;
   border-radius: 5px!important;
   color: white;
-  width: 70% !important;
+  width: 70% ;
   padding: 10px;
   margin-top: 30px !important;
   margin-bottom: 20px;
@@ -694,6 +727,10 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
     border-radius: 10px;
   }
 @media screen and (max-width: 500px){
+
+  .buttonsbmt{
+    width: 90%!important;
+  }
   
   .mainHome{
     display: flex;
@@ -705,6 +742,10 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   }
   
   .totalAds{
+  width: 60% !important;
+  font-size: 12px;
+}
+.totalAds_red{
   width: 60% !important;
   font-size: 12px;
 }

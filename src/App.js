@@ -24,6 +24,7 @@ import Posteur from './containers/posteur';
 import Annonce from './containers/annonces';
 import Edityourads from './containers/edityourads'
 import Admin from './containers/admin'
+import Forgot from './containers/user/forgot';
 
 
 import {Routes, Route} from 'react-router-dom';
@@ -57,6 +58,7 @@ function App() {
           <Route exact path="/annonces" element={<RequireAuth child={Annonce} auth={true}/>}/>
           <Route exact path="/edityourads/:id" element={<RequireAuth child={Edityourads} auth={true}/>}/>
           <Route exact path="/admin" element={<RequireAuth child={Admin} auth={true}/>}/>
+          <Route exact path="/forgot" element={<Forgot />}/>
           
         
         </Routes>

@@ -82,4 +82,16 @@ export const updateCooks = async (id) => {
     }
 }
 
+//route de récupération de mot de passe oublié
+export const forgotPassword = (data) => {
+    return axios.post(config.api_url+'/api/v1/user/forgot', data)
+        .then((response)=>{
+            return response.data;
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+}
+
+
 
