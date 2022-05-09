@@ -54,6 +54,8 @@
    
 
 }
+
+
 .cont_submenu{
    
     margin: auto;
@@ -74,8 +76,35 @@
     color: #525151;
     font-size: 30px;
     margin-top: 10px;
+    width: 70%;
+    margin: auto ;
+    padding:5px;
+    
    
     background-color: rgb(218, 244, 254);
+}
+.pop_title{
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 10px;
+    width: 70%;
+    margin: auto ;
+    padding:5px;
+   
+    background-color: rgb(125, 117, 244);
+}
+.Newletter{
+    display: flex;
+    flex-direction: column;
+    background-color: #3b79ff;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    color: #ffffff;
 }
 
 .link_submenu{
@@ -146,9 +175,10 @@
   
   }
 
+
   @media screen and (max-width: 500px){
 
-
+   
     .link_submenu_firstLetter{
 
         /*FAIRE un background de couleur vert rond  et la lettre color white */

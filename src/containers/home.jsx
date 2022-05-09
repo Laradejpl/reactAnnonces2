@@ -12,13 +12,14 @@ import GoogleMapReact from 'google-map-react';
 import '../home.css';
 import '../temporary.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds,getAdsByPrice} from '../api/annonce';
+import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds,getAdsByClick} from '../api/annonce';
 import {updateCooks} from '../api/user';
 import axios from 'axios';
 import ReactCardSlider from './ReactCardSlider';
 import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
+import lottie from 'lottie-web'
 import '../Modal.css'
 
 
@@ -52,8 +53,8 @@ const Jetboat = (props) => {
 
        const [totalAds, setTotalAds] = useState(0);
 	   const [lastAds, setLastAds] = useState([]);
-	   const [adsBtwPrice, setAdsBtwPrice] = useState([]);
-	   const [toggleMenu, setToggleMenu] = useState(false)
+	   const [adsByClicks, setAdsByClicks] = useState([]);
+	  
 	   const [position, setPosition] = useState(defaultProps.center)
 	   const [zoom, setZoom] = useState(defaultProps.zoom)
 	   const [address, setAddress] = useState("")
@@ -74,6 +75,7 @@ const Jetboat = (props) => {
 	   const [openModal, setOpenModal] = useState(false);
 	   const [msg, setMsg] = useState('');
 	   const [trueCookie, setTrueCookie] = useState(false);
+	   const containa = useRef(null)
 	  
 	   
 
@@ -321,8 +323,19 @@ updateClickAds(locals.id)
 		)
 		.catch((err)=>{
 			console.log(err);
+		})
+
+		getAdsByClick()
+		.then((res)=>{
+			console.log("LES PLUS REGARDER",res.result);
+			setAdsByClicks(res.result)
 		}
 		)
+		.catch((err)=>{
+			console.log(err);
+		}
+		)
+
 		
 			
 	},[])
@@ -342,6 +355,18 @@ updateClickAds(locals.id)
 	
 
 	},[])
+
+
+	//lottie
+	useEffect(() => {
+        lottie.loadAnimation({
+            container:containa.current,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: require('../assets/lighthouse.json')
+        })
+      }, [])
 
 
 
@@ -416,7 +441,7 @@ updateClickAds(locals.id)
           <p>Ici vous trouverez votre dernier bijoux nautique ,</p>
         </header>
 		
-		
+	
            <div className='containr'>
                   <div className='totalAds'>{`Nous avons ${totalAds} Annonces`}</div>
 				  {/*barre de recherche*/}
@@ -507,7 +532,7 @@ updateClickAds(locals.id)
 		        </GoogleMapReact>
 		    </div>
 
-                <h5 className='lastAds_title'> Les Dernières Annonces</h5>
+                <h5 className='lastAds_title'> Toutes nos annonces sont verifiées</h5>
 				{( screenWidth < 500) && (
 				       <div className='divider'></div>
 				)}
@@ -522,9 +547,15 @@ updateClickAds(locals.id)
                 <div className='divider'></div>
 
         </div>
+
+		
   
         <section className='maincontent'>
 
+
+	
+
+	
 		 
 
 		
@@ -543,12 +574,74 @@ updateClickAds(locals.id)
 			 </div>
 
              <article className='MainArticleHome'>
-              
-              
 
-            <section className='lastAds_secte'>
+			 {!KeywordValue && ( 
+			          <div>
+				        <h4 className='pop_title'>Les annonces les plus populaires</h4>
 
+				          <div className='divider'></div>
+                      </div>
+
+				  )}
+					  
+				
+
+			 <section className='lastAds_secte'>
+
+			 {!KeywordValue && ( 
+
+
+				<div className='sectforcardss'>
+
+					  { adsByClicks.map((bateau,index)=>{
+						return (
+				<div className='ads-cardss'>
+					  <Link to={"/detail/" + bateau.id}>
+					  <CloudinaryContext cloudName="dehjoundt">
+					   <div className='ads-card-image' onClick={()=>{
+
+   updateClickAds(bateau.id)
+	  .then((res)=>{
+		console.log(res);
+
+		}
+		)
+		.catch((err)=>{
+			   console.log(err);
+		}
+		)
+
+
+	}}>
+					   <BsSearch  className='iconsearch'></BsSearch>
+					
+					    <Image publicId={bateau.imageUrl} className='imgsads'>
+			                <Transformation quality="auto" fetchFormat="auto" />
+			              </Image>
+			            </div>
+			         </CloudinaryContext>
+					   </Link>
+
+					   <span className='ads-card-date'>{moment(bateau.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{bateau.title.substr(0, 20)}</p>
+								  <p className='ads-card-description'>{`${bateau.description.substr(0, 80)} ...`}</p>
+								  <p className='slider-card-price'>{`${bateau.price} €`}</p>
+								  <p className='ads-card-city'>{bateau.city}</p>
+
+                </div>
+						)
+					}
+					)}
+			 </div>
+
+
+			 )}
+              
+			 </section>
+              {!KeywordValue && (<h5 className='lastAds_title'> Les Dernières Annonces</h5>)}
+             <section className='lastAds_secte'>
+			         
 				   {!KeywordValue ? (
+
 					   <>
 			  <div className='sectforcardss'>
 
@@ -646,8 +739,10 @@ updateClickAds(ad.id)
         <div id='bodys'>
         <div className='divider'></div>
                   <ReactCardSlider/>
+				  
                   
                 </div>
+				
 			          </section>
 
                
@@ -656,20 +751,24 @@ updateClickAds(ad.id)
               
 
 
-						{( screenWidth > 500) && (
-<aside className='main_filter'>
-{/* un input range ente le prix Min et LE PRIX max*/}
 
-
-							
-</aside>
-						)}
 
 
         </section>
 
-		
+	<div className='divider'></div>	
+       <div className='Newletter'> 
+	   <div className='containa' ref={containa}></div>
+           <p><b>Abonnez</b> vous à notre NewsLetter pour recevoir les dernieres annonces publiée sur Le Phare</p>
+		   <form className='form'>
+		   <label> S'abonner</label>
+		   <input type='checkbox' 
 
+		   
+		    />
+			</form>
+		   
+	   </div>
    
           
      </main>

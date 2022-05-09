@@ -296,7 +296,7 @@ const Posteur = (props) => {
 
      </section>
      <aside className='asideposterpub'>
-       <img src={pub} alt="logo application" className="pubmarine"/>
+       <img src={pub} alt="Pub armée" className="pubmarine"/>
 
        <article className='containar'>
 

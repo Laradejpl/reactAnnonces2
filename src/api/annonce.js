@@ -268,5 +268,16 @@ export const deleteAd = (id) => {
             );
         }
 
-
+//avoir les annonces les plus clicker
+export const getAdsByClick = () => {
+    return axios.get(config.api_url + "/api/v1/ads/clicks")
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
 

@@ -6,6 +6,7 @@ import {selectUser} from '../slices/userSlice';
 import annonceSlice, {loadUserAnnonces, selectAnnonces,getOneAnnonce} from '../slices/annonceSlice';
 import {Link} from 'react-router-dom';
 import {categorys} from '../helpers/category';
+import {marques} from '../helpers/marque';
 import axios from 'axios';
 import { config } from "../config";
 
@@ -23,6 +24,7 @@ const Post = (props)=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
+    const [marque, setMarque] = useState('');
     const [price, setPrice] = useState('');
     const [address, setAddress] = useState('');
     const [zip,setZip] = useState('');
@@ -51,6 +53,7 @@ const Post = (props)=>{
                     title: title,
                     description: description,
                     category: category,
+                    marque: marque,
                     price: price,
                     address: address,
                     zip: zip,
@@ -154,6 +157,20 @@ const Post = (props)=>{
                     {categorys.map((category, index) => (
                       <option key={index} value={category}>
                         {category}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label className='labelcat'>Marque</label>
+                  <select
+                    name="marque"
+                    onChange={(e) => {
+                      setMarque(e.currentTarget.value);
+                    }}
+                  >
+                    {marques.map((marque, index) => (
+                      <option key={index} value={marque}>
+                        {marque}
                       </option>
                     ))}
                   </select>

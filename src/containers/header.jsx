@@ -60,7 +60,7 @@ const Header = (props)=>{
 							</Link>
 
 						 )}  
-					     <Link to="/post" className="items">Déposer une annonce</Link>
+					     <Link to="/post" className="items_depot">Déposer une annonce</Link>
 						 <Link to="/logout">
                             <FontAwesomeIcon icon={faSignOutAlt}  className="logoutSvg"/>
                         </Link>
