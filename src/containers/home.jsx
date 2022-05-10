@@ -470,25 +470,27 @@ updateClickAds(locals.id)
 
                 <div className='searchBarhome'>
 				  <form
-				className="c-form c-form--search"
+				className="c-form c-form--search cont_searchBarhome"
 				onSubmit={(e)=>{
 					e.preventDefault();
 					onSubmitForm()
 				}}
 			>
-				<input 
-					type="text" 
+			   <div className='row_cont_middle'>
+				      <input 
+					      type="text" 
 					placeholder="Tapez un adresse"
 					className='inputSearchHome'
 					onChange={(e)=>{
 						setAddress(e.currentTarget.value)
-					}}
-				/>
-				<p>Choisissez une categorie : </p>
-				<select
+					      }}
+				      />
+				
+				      <select
 					onChange={(e)=>{
 						setCategory(e.currentTarget.value)
 					}}
+					className='selectSearchHome'
 				>
 					{
 						categorys.map((category, index)=>{
@@ -497,12 +499,15 @@ updateClickAds(locals.id)
 									</option>)
 						})
 					}
-				</select>
-				<p>Quelle distance (km) : </p>
-				<select
+				      </select>
+
+					
+				    <p>km : </p>
+				    <select
 					onChange={(e)=>{
 						setRadius(e.currentTarget.value)
 					}}
+					className='selectSearchHome'
 				>
 					{
 						[...Array(20).keys()].map((num, index)=>{
@@ -511,7 +516,10 @@ updateClickAds(locals.id)
 									</option>)
 						})
 					}
-				</select>
+				    </select>
+
+				
+				</div>
 				<input type="submit" name="Chercher" className='mapBtn'/>
 			     </form> 
                 </div>
