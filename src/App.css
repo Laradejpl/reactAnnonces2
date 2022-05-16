@@ -4,6 +4,34 @@
   margin: auto;
   
 }
+.message_eara{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border: 1px solid rgb(177, 177, 177);
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  border-radius: 10px;
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;  
+}
+.date{
+  margin-left: 80%;
+}
+.message_eara_content{
+  background: #8ac2f6;
+  width: 90%;
+  margin: auto;
+  color: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.main_profile{
+  margin:auto;
+    margin-top: 100px;
+ 
+}
 .row_cont{
   display: flex;
   flex-direction: row;
@@ -13,6 +41,26 @@
   margin: 5 auto;
   width: 100%;
   max-width: 1200px;
+}
+.formulaire_message{
+ margin-top: 150px;
+}
+
+.btnBlues{
+  background-color: #00bcd4;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.MsgBtn{
+
+  text-decoration: none;
+  color: white;
+
 }
 .row_cont_center{
   margin-top: 20px;
@@ -727,6 +775,13 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
     border-radius: 10px;
   }
 @media screen and (max-width: 500px){
+  .message_eara{
+ width: 90%;
+
+ }
+  .row_cont{
+    flex-direction: column !important;
+  }
 
   .buttonsbmt{
     width: 90%!important;

@@ -171,10 +171,17 @@
         margin-top: 10px;
         
     }
+  
    
   
   }
-
+.selectSearch{
+    width:50% !important;
+    height: 30px;
+    background-color: rgb(235, 235, 235);
+    border: none;
+    border-radius: 5px !important;
+}
 
   @media screen and (max-width: 500px){
 

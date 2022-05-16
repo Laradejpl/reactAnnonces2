@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {getOneAnnonce,getUserInfoByAnnonce,getLastTreeAdsByCat } from '../api/annonce';
+
 import {saveOneNote} from '../api/note';
 import logo from '../assets/pharelogo.png'
 import modalimg from '../assets/voilier.png'
 import { BsSearch } from "react-icons/bs";
 import { FaStar } from 'react-icons/fa';
-import { BsFillGeoFill,BsFillCreditCardFill,BsTelephoneFill } from "react-icons/bs";
+import { BsFillGeoFill,BsFillCreditCardFill,BsTelephoneFill,BsChatRightQuoteFill } from "react-icons/bs";
 import '../Modal.css'
 
 //import Modal from '../components/Modal';
@@ -56,6 +57,7 @@ const Detail = (props)=>{
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [msg, setMsg] = useState('');
+
 
  
  
@@ -351,6 +353,11 @@ return (
            
             
             <Link to={`/posteur/${idPosteur}/`} className='modalBtn'>Voir son profil</Link>
+            <div className='btnBlues'>
+              <BsChatRightQuoteFill style={{marginRight:5}}/>
+              <Link to={`/message/${idPosteur}/${id}`} className='MsgBtn'>Envoie lui un message</Link>
+
+            </div>
             
             <div className='divider'></div>
 
@@ -362,36 +369,6 @@ return (
   <div>
 
    <section className='sect_detail_adsim'>
-   {/*
-   
-   <div className='sectforcards'>
-					{treeAds.map((ad,index)=>{
-						return (
-							<div className='ads-card'>
-					<Link to={"/detail/" + ad.id}>
-					<CloudinaryContext cloudName="dehjoundt">
-					 <div className='ads-card-image'>
-					 <BsSearch  className='iconsearch'></BsSearch>
-					
-					 <Image publicId={ad.imageUrl1} className='imgsads'>
-			                <Transformation quality="auto" fetchFormat="auto" />
-			              </Image>
-			            </div>
-			         </CloudinaryContext>
-					 </Link>
-
-					 <span className='ads-card-date'>{moment(ad.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{ad.title}</p>
-								  <p className='ads-card-description'>{`${ad.description.substr(0, 80)} ...`}</p>
-								  <p className='slider-card-price'>{`${ad.price} €`}</p>
-								  <p className='ads-card-city'>{ad.city}</p>
-
-                     </div>
-						)
-					}
-					)}
-				</div>
-   
-   */}
 
 
 

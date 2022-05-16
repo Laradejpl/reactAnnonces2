@@ -44,6 +44,7 @@ import {selectUser} from '../slices/userSlice';
             <div className='divider'></div>
 
             )}
+            
             {( user.infos.role === "admin") && (
             <li><Link to="/admin" className="profile_link">Admin</Link></li>
              ) }

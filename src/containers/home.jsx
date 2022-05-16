@@ -490,7 +490,7 @@ updateClickAds(locals.id)
 					onChange={(e)=>{
 						setCategory(e.currentTarget.value)
 					}}
-					className='selectSearchHome'
+					className='selectSearch'
 				>
 					{
 						categorys.map((category, index)=>{
@@ -507,7 +507,7 @@ updateClickAds(locals.id)
 					onChange={(e)=>{
 						setRadius(e.currentTarget.value)
 					}}
-					className='selectSearchHome'
+					className='selectSearch'
 				>
 					{
 						[...Array(20).keys()].map((num, index)=>{

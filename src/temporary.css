@@ -22,7 +22,12 @@
 }
 .inputSearchHome{
     width:50% !important;
+    background-color: rgb(235, 235, 235);
+    border: none;
+    border-radius: 5px !important;
 }
+
+
 .c-form.c-form--search{
     width: 40% !important;
 }

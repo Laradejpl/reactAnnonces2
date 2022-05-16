@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Navigate} from 'react-router-dom';
 import {changeImg, getOneUser,updateUser} from '../api/user';
+import { getAllMessagesByReceiverId } from '../api/messages';
 import {
     Image,
     Video,
@@ -10,6 +11,8 @@ import {
 import {useDispatch,useSelector } from 'react-redux';
 import {selectUser,connectUser} from '../slices/userSlice';
 import axios from 'axios'
+import moment from "moment";
+moment.locale('fr');
 
 const Profil = (props)=>{
     
@@ -23,6 +26,7 @@ const Profil = (props)=>{
     const [msg, setMsg] = useState(null);
 	const [img, setImg] = useState(null);
 	const [picture,setPicture] = useState([])
+	const [allMessages,setAllMessages] = useState([])
 
 
     useEffect(()=>{
@@ -41,6 +45,15 @@ const Profil = (props)=>{
 	     
 	    
 	},[picture])
+
+	useEffect(()=>{
+		getAllMessagesByReceiverId(user.infos.id)
+		.then(res=>{
+			setAllMessages(res.results)
+			console.log("LES MESSAGES",allMessages)
+		})
+		.catch(err=>console.log(err))
+	},[])
 
     const savePictures = ()=>{
 
@@ -147,8 +160,11 @@ const Profil = (props)=>{
 
 	
     return (
-        <div>
-			<h2>Profil</h2>
+		<div className='main_profile'>
+		<h2>Profil</h2>
+        <div className='row_cont'>
+		  
+			
 			{msg !== null && <p>{msg}</p>}
 			
 	        <br />
@@ -217,7 +233,33 @@ const Profil = (props)=>{
 	            
 	            <input type="submit" name="Enregister"/>
 	       </form>
+
+		   <div className='message_eara'>
+		     <h3>Vos messages</h3>
+			 <div className='divider'></div>
+
+			 {allMessages.map((message,index)=>{
+				 return(
+					 <div className='message_eara_content' key={index}>
+						 <h4>{message.titleMessage}</h4>
+						 <p>{message.contentMessage}</p>
+						 <span className='date'>{moment(message.dateCreationMessage).format("YYYY-MM-DD")}</span>
+					 </div>
+				 )
+				 			 
+
+			 
+
+			 })}
+			
+
+
+
+
+		   </div>
+
 	    </div>
+		</div>
     )
 }
 
