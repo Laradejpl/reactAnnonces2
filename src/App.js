@@ -59,7 +59,7 @@ function App() {
           <Route exact path="/edityourads/:id" element={<RequireAuth child={Edityourads} auth={true}/>}/>
           <Route exact path="/admin" element={<RequireAuth child={Admin} auth={true}/>}/>
           <Route exact path="/forgot" element={<Forgot />}/>
-          <Route exact path="/message/:id/:id" element={<RequireAuth child={Message} auth={true}/>}/>
+          <Route exact path="/message/:id/:idannonce" element={<RequireAuth child={Message} auth={true}/>}/>
           
         
         </Routes>

@@ -16,6 +16,8 @@ const Message = (props) => {
     const [openModal, setOpenModal] = useState(false);
     const [vide,setVide] = useState(true);
     const id = props.params.id
+    const idannonce = props.params.idannonce
+    console.log("ID DE LANNONCE",idannonce);
 
 
     const onSubmitForm = ()=>{
@@ -23,7 +25,8 @@ const Message = (props) => {
             posteurId: user.infos.id,
             receiverId: id,
             titleMessage:titleMessage,
-            contentMessage:contentMessage
+            contentMessage:contentMessage,
+            idannonce:idannonce
 
         }
         saveOneMessage(data)
