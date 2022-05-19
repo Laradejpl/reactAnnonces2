@@ -56,3 +56,29 @@ export const getAllMessagesByReceiverId = (receiverId) => {
         }
         );
     }
+
+    // avoir les infos de l'annonce d'un message
+export const getInfoAdsByMessage = (receiverId) => {
+    return axios.get(config.api_url + '/api/v1/messages/annoncesinfo/'+ receiverId)
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
+
+    //avoir le nombre de message par receiverId
+export const getNbMessageByReceiverId = (receiverId) => {
+    return axios.get(config.api_url + '/api/v1/messages/count/'+ receiverId)
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }

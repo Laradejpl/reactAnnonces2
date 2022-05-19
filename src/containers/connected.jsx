@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import { capitalize } from '../helpers/toolbox';
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
+import {getNbMessageByReceiverId} from '../api/messages';
+
 
 
 
@@ -11,6 +13,7 @@ import {selectUser} from '../slices/userSlice';
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const user = useSelector(selectUser)
     const [admin, setAdmin] = useState('')
+    const [nbrMessage, setNbrMessage] = useState(0)
 
 
 
@@ -28,11 +31,29 @@ import {selectUser} from '../slices/userSlice';
 	
 	  }, [])
 
+    useEffect(()=>{
+
+      getNbMessageByReceiverId(user.infos.id)
+      .then((result)=>{
+        setNbrMessage(result.results[0].nbMessage)
+        console.log("NBR MESSAGE",nbrMessage);
+      }
+      )
+      .catch((err)=>{
+        console.log(err)
+      }
+      )
+
+
+    },[nbrMessage])
+
 
     return (
         <div className='connected_aside'>
         <ul className="connected_ul">
-        <Link to="/profil" className="profile_link_connected_user">{ capitalize(user.infos.firstName)}</Link>
+
+        
+        <Link to="/profil" className="profile_link_connected_user">{ capitalize(user.infos.firstName)} </Link>
             {( screenWidth > 500) && (
             <div className='divider'></div>
 
@@ -44,10 +65,19 @@ import {selectUser} from '../slices/userSlice';
             <div className='divider'></div>
 
             )}
+            <li><Link to="/profil" className="profile_link"><span className='notifmsg'>{`${nbrMessage} Messages`}</span></Link></li>
+            {( screenWidth > 500) && (
+            <div className='divider'></div>
+
+            )}
             
             {( user.infos.role === "admin") && (
             <li><Link to="/admin" className="profile_link">Admin</Link></li>
              ) }
+
+             
+
+
            
           
         </ul>

@@ -63,7 +63,7 @@ export const getLastAdsByUser = (user_id) => {
 
 //update des images
 export const updateImages = (datas) => {
-    return axios.post(config.api_url + "/api/v1/ads/update/images", datas, {headers: {"x-access-token": token}} )
+    return axios.post(config.api_url + "/api/v1/ads/update/images", datas )
         .then(response => {
             return response.data;
         }

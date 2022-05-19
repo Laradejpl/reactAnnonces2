@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {Navigate} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import {changeImg, getOneUser,updateUser} from '../api/user';
-import { getAllMessagesByReceiverId } from '../api/messages';
+import { getInfoAdsByMessage } from '../api/messages';
 import {
     Image,
     Video,
@@ -47,7 +47,7 @@ const Profil = (props)=>{
 	},[picture])
 
 	useEffect(()=>{
-		getAllMessagesByReceiverId(user.infos.id)
+		getInfoAdsByMessage(user.infos.id)
 		.then(res=>{
 			setAllMessages(res.results)
 			console.log("LES MESSAGES",allMessages)
@@ -241,8 +241,25 @@ const Profil = (props)=>{
 			 {allMessages.map((message,index)=>{
 				 return(
 					 <div className='message_eara_content' key={index}>
-						 <h4>{message.titleMessage}</h4>
+					 {/* afficher l'image du user*/}
+					 
+					 <CloudinaryContext cloudName="dehjoundt">
+		            <div className='row_conta'>
+		              <Image publicId={message.imageUrl} id="round_img">
+		                <Transformation quality="auto" fetchFormat="auto" />
+						
+		              </Image>
+					<div>
+					    <p>{message.title}</p>
+						 <p>{`${message.price} €`}</p>
+					</div>
+		            </div>
+		         </CloudinaryContext>
+				 <div className='divider'></div>
+						 <h6>{message.titleMessage}</h6>
 						 <p>{message.contentMessage}</p>
+				 <Link to={`/chat/${message.id}`} >{`Répondez a ${message.lastName}`}</Link>
+						
 						 <span className='date'>{moment(message.dateCreationMessage).format("YYYY-MM-DD")}</span>
 					 </div>
 				 )

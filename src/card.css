@@ -12,6 +12,15 @@
     cursor: pointer;
 
 }
+.notifmsg{
+   background-color: brown;
+   color: aliceblue;
+   font-size: 15px;
+    padding: 5px;
+    border: 2px solid rgb(255, 255, 255);    
+    border-radius: 5px;
+   
+}
 
 .ads-card-image{
     width: 100%;

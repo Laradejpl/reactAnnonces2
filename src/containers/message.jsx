@@ -4,7 +4,7 @@ import {getAllAnnonces,saveOneMessage,getLastMessage,getAllMessagesByReceiverId}
 import '../Modal.css'
 import cookieImg from '../assets/cookimg.png'
 import {selectUser} from '../slices/userSlice';
-import {useDispatch,useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 
 
 const Message = (props) => {

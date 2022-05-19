@@ -34,6 +34,8 @@ const ImagesAnnonces = (props)=>{
                       const [category, setCategory] = useState('');
                       const [img, setImg] = useState(null);
 	                    const [picture,setPicture] = useState([])
+                      const [redirect, setRedirect] = useState(false)
+                      
 
                       console.log(params.id);
                       console.log("la categorie de id",annonce.annonce[0].id);
@@ -71,7 +73,8 @@ const ImagesAnnonces = (props)=>{
                             if(res.status === 200){
                             
                                 setImg(annonce.annonce[0].imageUrl)
-                                setMsg("Vous avez bien ajouté voss images")
+                                setMsg("Vous avez bien ajouté vos images")
+                                setRedirect(true)
                             }else{
                               setMsg("L'image n'a pas été ajouter");
                             }
@@ -108,7 +111,7 @@ const ImagesAnnonces = (props)=>{
                                  cloudName: "dehjoundt",//nom de mon cloud
                                  uploadPreset: "coachme",//dossier ou l'on veut envoyer
                                  maxImageWidth: 800,//on peut paramètrer la taille max de l'image
-                                 cropping: false,//recadrage
+                                 cropping:false,//recadrage
                                },
                                  (error, result) => {
                             //console.log(error);
@@ -142,7 +145,7 @@ const ImagesAnnonces = (props)=>{
                                     setImg(response.result.imageUrl)
                                 })
 
-                                    setMsg("Vous avez bien modifié votre annonce")
+                                    setMsg("Vous avez bien ajoutez votre annonce")
                                 }else{
                                        setMsg("L'annonce n'a pas été modifié");
                                   }
@@ -151,9 +154,14 @@ const ImagesAnnonces = (props)=>{
                          
                        }
 
+                       if(redirect){
+                        return <Navigate to="/"/>
+                    }
+                    
+
 
                         return (
-                          <div>
+                          <div className='form_img_uploader'>
                         <h2>annonces</h2>
                         {msg !== null && <p>{msg}</p>}
                         
