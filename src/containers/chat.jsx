@@ -40,6 +40,7 @@
       const idPosteur = props.params.idpost
       const idReceiver = user.infos.id
       const idannonce = props.params.idannonce
+      const [tabchat,setTabchat] = useState([])
 
       console.log("idPosteur",idPosteur);
       console.log("idReceiver",idReceiver);
@@ -48,7 +49,15 @@
 
 
 
+    const filterDate = (date1,date2) => {
 
+  let dateRecup = new Date(date1.dateCreationMessage)
+  let dateRecup1 = new Date(date2.dateCreationMessage)
+
+    return dateRecup > dateRecup1 ? 1 : -1
+
+
+    }
 
 
       const onSubmitForm = ()=>{
@@ -131,13 +140,44 @@
 
       useEffect(() => {
         const interval = setInterval(() => {
+           let messageChat = [];
 
           getAllMessagesByReceiverIdAndIdannonce(idReceiver,idannonce,idPosteur)
           .then(res=>{
+
+            for(let i=0;i<res.results.length;i++){
+              res.results[i].role="receiver"
+             messageChat.push(res.results[i])
+            }
+
             setMessagesReceiver(res.results)
             setIstYou(true)
-            
-            console.log("LES MESSAGES",res.results)
+           // messageChat.push(res.results)
+            //console.log("LES MESSAGES",res.results)
+
+
+
+
+
+            getAllMessagesByReceiverIdAndIdannonce(idPosteur,idannonce,idReceiver)
+            .then(response=>{
+              setMessagesPosteur(response.results)
+              setItsMe(true)
+
+              for(let i=0;i<response.results.length;i++){
+                response.results[i].role="poster"
+                messageChat.push(response.results[i])
+               }
+
+               messageChat.sort(filterDate)
+               setTabchat(messageChat)
+              //let messageTableaux = [res.results,response.results]
+              
+              console.log("LES MEsssages tableaux",messageChat)
+              
+              console.log("MES MESSAGES ",response.results)
+            })
+            .catch(err=>console.log(err))
            
           })
           .catch(err=>console.log(err))
@@ -153,23 +193,7 @@
 
 
 
-      useEffect(() => {
-        const interval = setInterval(() => {
-
-          getAllMessagesByReceiverIdAndIdannonce(idPosteur,idannonce,idReceiver)
-          .then(res=>{
-            setMessagesPosteur(res.results)
-            setItsMe(true)
-            
-            console.log("MES MESSAGES ",res.results)
-          })
-          .catch(err=>console.log(err))
-         
-
-
-        }, 5000);
-        return () => clearInterval(interval);
-      }, []);
+     
 
 
       
@@ -248,7 +272,7 @@
  
 
     
-{messagesReceiver.map((message,index)=>{
+{tabchat.map((message,index)=>{
           return(
             <div>
             <div  className = {istYou ? 'row_message_bubble' :'row_message_bubble_red'} key={index}>
@@ -265,7 +289,7 @@
                 </div>
               </div>
             </div>
-            <p>{moment(message.creationTimestamp).format("YYYY-MM-DD hh:mm")}</p>
+            <p>{moment(message.dateCreationMessage).format("YYYY-MM-DD hh:mm")}</p>
             </div>
           )
         }
@@ -273,14 +297,14 @@
       }
      
  
-        {messagesPosteur.map((messag,index)=>{
+       { /*messagesPosteur.map((messag,index)=>{
           return(
             <div>
             <div  className = {itsMe ? 'row_message_bubble_red' :'row_message_bubble'} key={index}>
               <div className='row_message_left'>
             
               </div>
-              <div className='row_message_right'>
+              <div className=''>
                 <div className='row_message_right_top'>
                  <p>{messag.lastName}</p>
                   <p>{messag.contentMessage}</p>
@@ -294,7 +318,7 @@
             </div>
           )
         }
-        )}
+        )*/}
 
     
 
