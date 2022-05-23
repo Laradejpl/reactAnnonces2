@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link, Navigate} from 'react-router-dom';
+import {FaWindowClose } from 'react-icons/fa';
 import {changeImg, getOneUser,updateUser} from '../api/user';
-import { getInfoAdsByMessage } from '../api/messages';
+import { getInfoAdsByMessage,deleteMessageById} from '../api/messages';
 import {
     Image,
     Video,
@@ -27,6 +28,8 @@ const Profil = (props)=>{
 	const [img, setImg] = useState(null);
 	const [picture,setPicture] = useState([])
 	const [allMessages,setAllMessages] = useState([])
+	const [idMessage,setIdMessage] = useState(null)
+	const [message, setMessage] = useState({});
 
 
     useEffect(()=>{
@@ -50,7 +53,7 @@ const Profil = (props)=>{
 		getInfoAdsByMessage(user.infos.id)
 		.then(res=>{
 			setAllMessages(res.results)
-			console.log("LES MESSAGES",allMessages)
+			console.log("LES MESSAGES",res.results)
 		})
 		.catch(err=>console.log(err))
 	},[])
@@ -234,7 +237,7 @@ const Profil = (props)=>{
 	            <input type="submit" name="Enregister"/>
 	       </form>
 
-		   <div className='message_eara'>
+		    <div className='message_eara'>
 		     <h3>Vos messages</h3>
 			 <div className='divider'></div>
 
@@ -250,15 +253,35 @@ const Profil = (props)=>{
 						
 		              </Image>
 					<div>
-					    <p>{message.title}</p>
+				         <p>{message.title}</p>
 						 <p>{`${message.price} €`}</p>
 					</div>
+					<div>
+
+						<FaWindowClose className='icondelete' onClick={()=>{
+
+						//effacer les message par leur id
+						deleteMessageById(message.id_msg)
+						.then(res=>{
+							setAllMessages(allMessages.filter(mess=>mess.id !== message.id))
+							console.log("DELETE",res);
+                            console.log("delete",message.id_msg);
+						}
+                  )
+                  .catch(err=>{
+                    console.log(err);
+                  }
+				    
+				  )
+              
+                 }} />
+				 </div>
 		            </div>
 		         </CloudinaryContext>
 				 <div className='divider'></div>
 						 <h6>{message.titleMessage}</h6>
 						 <p>{message.contentMessage}</p>
-				 <Link to={`/chat/${message.id}`} >{`Répondez a ${message.lastName}`}</Link>
+				 <Link to={`/chat/${user.infos.id}/${message.id_msg}/${message.idannonce}/${message.id}`} >{`Répondez a ${message.lastName}`}</Link>
 						
 						 <span className='date'>{moment(message.dateCreationMessage).format("YYYY-MM-DD")}</span>
 					 </div>
@@ -273,7 +296,9 @@ const Profil = (props)=>{
 
 
 
-		   </div>
+		    </div>
+
+			
 
 	    </div>
 		</div>

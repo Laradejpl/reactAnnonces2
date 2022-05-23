@@ -1,0 +1,105 @@
+.MT{
+    margin-top: ;
+}
+
+.row_message_bubble{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+.buttonsbmt-info{
+  
+    margin-bottom: 120px;
+    background:dodgerblue;
+  border-radius: 5px!important;
+  color: white;
+  width: 70% ;
+  padding: 10px;
+  margin-top: 5px;
+  
+ 
+  text-align: center;
+  border: 1px solid dodgerblue; 
+
+   
+   }
+   .containar{
+   width: 100px;
+  margin-left: 35%;
+   margin-top: 10%;
+   position: absolute;
+
+   }
+  
+#round_imgInfo{
+    border-radius:10px;
+    width: 70px;
+    height: 70px;
+   margin-right: 5px;
+  }
+
+.row_message_bubble_red{
+
+
+    background-color: #2f93f0;
+    border-radius: 10px;
+    padding: 10px;
+    color: #f5f5f5;
+    margin-bottom: 10px;
+    width: 40%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    margin-left: 60%;
+}
+
+.nameWithRoundInfo{
+    margin-left: -20%;
+     margin-top: -40px;
+     margin-bottom: 20px;
+   }
+
+   .row_marginInfo{
+       margin-top:30px;
+   }
+
+
+   @media screen and (max-width: 500px){
+
+    .nameWithRoundInfo{
+        margin-left: 40%;
+         margin-top: -40px;
+         margin-bottom: 20px;
+         font-size: 12px;   
+       }
+
+       .row_marginInfo{
+        margin-top:10px;
+    }
+    
+   .buttonsbmt-info{
+  
+    margin-bottom: 120px;
+    background:dodgerblue;
+  border-radius: 5px!important;
+  color: white;
+  width: 90% ;
+  padding: 10px;
+  margin-top: 5px;
+  
+ 
+  text-align: center;
+  border: 1px solid dodgerblue; 
+
+   
+   }
+    
+
+
+
+   }

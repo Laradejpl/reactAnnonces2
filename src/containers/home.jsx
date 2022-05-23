@@ -19,7 +19,7 @@ import ReactCardSlider from './ReactCardSlider';
 import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
-import lottie from 'lottie-web'
+
 import '../Modal.css'
 
 
@@ -357,16 +357,7 @@ updateClickAds(locals.id)
 	},[])
 
 
-	//lottie
-	useEffect(() => {
-        lottie.loadAnimation({
-            container:containa.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: require('../assets/lighthouse.json')
-        })
-      }, [])
+
 
 
 
@@ -764,19 +755,7 @@ updateClickAds(ad.id)
 
         </section>
 
-	<div className='divider'></div>	
-       <div className='Newletter'> 
-	   <div className='containa' ref={containa}></div>
-           <p><b>Abonnez</b> vous à notre NewsLetter pour recevoir les dernieres annonces publiée sur Le Phare</p>
-		   <form className='form'>
-		   <label> S'abonner</label>
-		   <input type='checkbox' 
-
-		   
-		    />
-			</form>
-		   
-	   </div>
+	
    
           
      </main>

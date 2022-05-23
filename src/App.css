@@ -3,13 +3,34 @@
   text-align: center;
   margin: auto;
   
+
 }
+.form{
+
+    background-color: white !important;
+  }
+
 #round_img{
   border-radius: 10%;
   width: 100px;
   height: 100px;
- margin-right: 10px;
+ margin-right: 5px;
 }
+.row_margin{
+  margin-top: 100px;
+}
+#rounder_img{
+  border-radius: 80%;
+  width: 100px;
+  height: 60px;
+  
+}
+.nameWithRound{
+ margin-left: -20%;
+  margin-top: -40px;
+  margin-bottom: 20px;
+}
+
 .form_img_uploader{
 
   margin-top: 100px;
@@ -26,9 +47,27 @@
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;  
 }
+.wide_message_eara{
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgb(177, 177, 177);
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;  
+}
 .date{
   margin-left: 50%;
   font-size: 12px;
+}
+.small_date{
+  margin-left: 58%;
+  margin-top: -40px;
+  margin-bottom: 20px;
+  font-size: 10px;
 }
 .message_eara_content{
   background: #8ac2f6;
@@ -42,6 +81,9 @@
   margin:auto;
     margin-top: 100px;
  
+}
+.containr{
+  background-image: url('assets/yatchh.png');
 }
 .row_cont{
   display: flex;
@@ -57,7 +99,9 @@
 .row_conta{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
+  background-color: #7bc1f3;
   
 }
 .formulaire_message{
@@ -176,8 +220,13 @@
   display: none;
 }
 .containa{
-  width: 10%;
+  width: 30%;
   margin: auto;
+}
+.containal{
+  width: 20%;
+  margin: auto;
+  margin-top: 60px;
 }
 .search_containerHome{
   margin-top:5px;
@@ -195,6 +244,7 @@
   border: 2px solid rgb(239, 239, 239);
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  background-color: white;
 }
 
 .connected_ul{
@@ -318,6 +368,7 @@
 }
 .container_login{
   margin-top: 20%;
+
 }
 .imginfouser{
   width:100px;
@@ -792,7 +843,29 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
    margin-bottom: 100px;
     border-radius: 10px;
   }
+  .icondelete{
+    width: 20px;
+    height: 20px;
+    
+    color: #000;
+    background-color: #ffffff;
+   
+    
+  }
+
+  /*pour voir les MEDIAS QUERIES LIGNE 838*/
 @media screen and (max-width: 500px){
+  .wide_message_eara{
+    width: 100%;
+    height: 250px;
+  }
+
+  #rounder_img{
+    border-radius: 50%;
+    width: 60px;
+    height: 40px;
+   margin-right: 5px;
+  }
   .message_eara{
  width: 90%;
 
@@ -879,9 +952,17 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   }
 
   .containa{
-    width: 20%;
+    width: 50%;
     margin: auto;
   }
+
+  .containal{
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+
+  }
+
   .iconsocio{
     max-width: 80px;
     max-height: 80px;

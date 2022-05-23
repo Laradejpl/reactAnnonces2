@@ -70,9 +70,53 @@ export const getInfoAdsByMessage = (receiverId) => {
         );
     }
 
+      // avoir les infos de l'annonce d'un message par posteurId
+export const getInfoAdsByMessageByPosteurId = (posteurId) => {
+    return axios.get(config.api_url + '/api/v1/messages/annoncesinfoposteur/'+ posteurId)
+
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
+
+
     //avoir le nombre de message par receiverId
 export const getNbMessageByReceiverId = (receiverId) => {
     return axios.get(config.api_url + '/api/v1/messages/count/'+ receiverId)
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
+
+    
+
+    //effacer un message par id
+export const deleteMessageById = (id) => {
+    return axios.delete(config.api_url + '/api/v1/delete/messages/'+ id)
+        .then(response => {
+            return response.data;
+        }
+        )
+        .catch(error => {
+            return error;
+        }
+        );
+    }
+
+
+      //avoir tout les messages avec les infos de l'annonce et les infos du posteurId  par receiverId et  par idannonce.
+export const getAllMessagesByReceiverIdAndIdannonce = (receiverId,idannonce,posteurId) => {
+    return axios.get(config.api_url + '/api/v1/messages/annoncesinfobyid/'+ receiverId+'/'+idannonce +'/'+ posteurId )
         .then(response => {
             return response.data;
         }
