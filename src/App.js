@@ -27,6 +27,10 @@ import Admin from './containers/admin'
 import Forgot from './containers/user/forgot';
 import Message from './containers/message'
 import chat from './containers/chat';
+import Semirigide from  './containers/semirigide';
+import Remorque from './containers/remorque';
+import Port from './containers/port';
+import Moteur from './containers/moteur';
 
 import {Routes, Route} from 'react-router-dom';
 import RequireAuth from './helpers/require-data-auth'
@@ -62,6 +66,11 @@ function App() {
           <Route exact path="/forgot" element={<Forgot />}/>
           <Route exact path="/message/:id/:idannonce" element={<RequireAuth child={Message} auth={true}/>}/>
           <Route exact path="/chat/:id/:id_msg/:idannonce/:idpost" element={<RequireAuth child={chat} auth={true}/>}/>
+          <Route exact path="/semirigide" element={<RequireAuth child={Semirigide} auth={true}/>}/>
+          <Route exact path="/remorque" element={<RequireAuth child={Remorque} auth={true}/>}/>
+          <Route exact path="/port" element={<RequireAuth child={Port} auth={true}/>}/>
+          <Route exact path="/moteur" element={<RequireAuth child={Moteur} auth={true}/>}/>
+
           
         
         </Routes>

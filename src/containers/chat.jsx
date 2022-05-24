@@ -3,6 +3,8 @@
     import { getAllMessagesByReceiverIdAndIdannonce,saveOneMessage} from '../api/messages';
     import {getOneAnnonce} from '../api/annonce'
     import lottie from 'lottie-web'
+    import ReactAudioPlayer from 'react-audio-player';
+  
   
   
     import {getOneUser} from '../api/user';
@@ -41,10 +43,9 @@
       const idReceiver = user.infos.id
       const idannonce = props.params.idannonce
       const [tabchat,setTabchat] = useState([])
+      const messagesEndRef = useRef(null)
 
-      console.log("idPosteur",idPosteur);
-      console.log("idReceiver",idReceiver);
-      console.log("idannonce",idannonce);
+      
 
 
 
@@ -57,6 +58,10 @@
     return dateRecup > dateRecup1 ? 1 : -1
 
 
+    }
+
+    const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
 
 
@@ -101,6 +106,11 @@
     }, [])
 
 
+    useEffect(() => {
+      scrollToBottom()
+    }, [tabchat]);
+
+
 
  const minuteurLoading = ()=>{
     setTimeout(()=>{
@@ -110,7 +120,7 @@
 
  const loadinglot = ()=>{
     setIsLoading(true)
-    console.log("loading")
+    console.log("lLOADING LOADING")
     minuteurLoading()
   }
   
@@ -123,14 +133,14 @@
         getOneUser(idPosteur)
         .then(res=>{
           setInfosPosteur(res.result)
-          console.log("infosPosteur",res.result)
+          
         })
         .catch(err=>console.log(err))
 
         getOneAnnonce(idannonce)
         .then(res=>{
           setInfoAnnonce(res.result)
-          console.log("UNE ANNONCE",res.result)
+          
         }
         )
         .catch(err=>console.log(err))
@@ -140,6 +150,7 @@
 
       useEffect(() => {
         const interval = setInterval(() => {
+          loadinglot()
            let messageChat = [];
 
           getAllMessagesByReceiverIdAndIdannonce(idReceiver,idannonce,idPosteur)
@@ -152,8 +163,7 @@
 
             setMessagesReceiver(res.results)
             setIstYou(true)
-           // messageChat.push(res.results)
-            //console.log("LES MESSAGES",res.results)
+        
 
 
 
@@ -173,9 +183,7 @@
                setTabchat(messageChat)
               //let messageTableaux = [res.results,response.results]
               
-              console.log("LES MEsssages tableaux",messageChat)
-              
-              console.log("MES MESSAGES ",response.results)
+            
             })
             .catch(err=>console.log(err))
            
@@ -193,7 +201,11 @@
 
 
 
-     
+      <ReactAudioPlayer
+      src="notif.ogg"
+      autoPlay
+      controls
+    />
 
 
       
@@ -275,7 +287,7 @@
 {tabchat.map((message,index)=>{
           return(
             <div>
-            <div  className = {istYou ? 'row_message_bubble' :'row_message_bubble_red'} key={index}>
+            <div  className = {message.role ==='receiver' ? 'row_message_bubble' :'row_message_bubble_red'} key={index}>
               <div className='row_message_left'>
             
               </div>
@@ -290,6 +302,7 @@
               </div>
             </div>
             <p>{moment(message.dateCreationMessage).format("YYYY-MM-DD hh:mm")}</p>
+            <div ref={messagesEndRef} />
             </div>
           )
         }
@@ -297,28 +310,7 @@
       }
      
  
-       { /*messagesPosteur.map((messag,index)=>{
-          return(
-            <div>
-            <div  className = {itsMe ? 'row_message_bubble_red' :'row_message_bubble'} key={index}>
-              <div className='row_message_left'>
-            
-              </div>
-              <div className=''>
-                <div className='row_message_right_top'>
-                 <p>{messag.lastName}</p>
-                  <p>{messag.contentMessage}</p>
-                </div>
-                <div className='row_message_right_bottom'>
-                 
-                </div>
-              </div>
-            </div>
-            <p>{moment(messag.creationTimestamp).format("YYYY-MM-DD hh:mm")}</p>
-            </div>
-          )
-        }
-        )*/}
+      
 
     
 

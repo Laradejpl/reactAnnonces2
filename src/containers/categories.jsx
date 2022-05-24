@@ -96,9 +96,29 @@ const Categories = (props)=>{
                             )}
   
                           </div>
+
+                          <div className='container_cat_inter'>
+                          <li><Link to="/remorque"  className="profile_link">Remorque</Link></li>
+                          {( screenWidth > 500) && (
+                                    <div className='divider'></div>
+  
+                            )}
+  
+                          </div>
                           
                           <div className='container_cat_inter'>
                           <li><Link to="/service"  className="profile_link">Service</Link></li>
+                          {( screenWidth > 500) && (
+                                    <div className='divider'></div>
+  
+                            )}
+  
+                          </div>
+
+
+
+                          <div className='container_cat_inter'>
+                          <li><Link to="/moteur"  className="profile_link">Moteur</Link></li>
                           {( screenWidth > 500) && (
                                     <div className='divider'></div>
   

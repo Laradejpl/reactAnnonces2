@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import jetskimg from '../assets/jetskii.png'
+import jetskimg from '../assets/pharelogo.png'
 import logo from '../assets/point.png'
 import { BsSearch } from "react-icons/bs";
 import {Link} from 'react-router-dom';
@@ -113,10 +113,10 @@ const onSubmitForm = () => {
     return (
         <main className='main_home'>
 		  
-		  <header className='homeheader'>
+		  <header className='homeheaderski'>
 		  <img src={jetskimg} alt="logo application" className="logohome"/>
-			<h1 className='titlehome'>Jetski</h1>
-			<p>Plus qu'un bateau une monture puissante</p>
+			<h1 className='titlehomeski'>Jetski</h1>
+			
 		  </header>
 		  {totalAdsCat>0? <div className='totalAds'>{`Nous avons ${totalAdsCat} Annonces`}</div>:<div className='totalAds_red'>{`Nous n'avons aucune annonce pour le moment qui correspond à la recherche`}</div>}
 		  

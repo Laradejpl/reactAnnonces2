@@ -263,7 +263,7 @@ const Profil = (props)=>{
 						//effacer les message par leur id
 						deleteMessageById(message.id_msg)
 						.then(res=>{
-							setAllMessages(allMessages.filter(mess=>mess.id !== message.id))
+							setAllMessages(allMessages.filter(mess=>mess.id_msg !== message.id_msg))
 							console.log("DELETE",res);
                             console.log("delete",message.id_msg);
 						}

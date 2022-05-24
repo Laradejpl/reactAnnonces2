@@ -2,6 +2,7 @@
 .App {
   text-align: center;
   margin: auto;
+ 
   
 
 }
@@ -234,6 +235,7 @@
 
 .logohome{
   width: 10%;
+  height:10%;
   
 }
 .c-form {
@@ -260,7 +262,14 @@
 .titlehome{
   color: #f1f1f1;
   font-size: 30px;
-  background-image: url('assets/yatchh.png');
+  
+}
+.titlehomeski{
+  color: #f1f1f1;
+  font-size: 30px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.5144651610644257) 35%, rgba(175,230,255,1) 79%, rgba(0,212,255,1) 100%);
+  padding-bottom: 10px;
 }
 
 .totalAds{
@@ -396,6 +405,80 @@ h1{
   background-image: url("../src/assets/maldives.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+.homeheaderski{
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/bandojetski.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.homeheaderjetboat{
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/bandoallboat.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.homeheaderVoi{
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/bandovoilier.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.homeheaderYat{
+
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/yatchdelux.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.homeheaderPen{
+
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/bandopeniche.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.homeheaderSemi{
+
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  margin-top:80px ;
+  box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("../src/assets/bandopeniche.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 .detailheader{
 
@@ -931,7 +1014,10 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
    
   }
 
-  .logohome{width: 50%;}
+  .logohome{
+    width: 50%;
+    
+  }
   .logoutMain{
     display: block;
     text-decoration: none;

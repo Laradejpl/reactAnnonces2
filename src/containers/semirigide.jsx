@@ -19,8 +19,7 @@ import '../App.css';
 
 moment.locale('fr');
 
-
-const Peniche = (props) => {
+const Semirigide = (props) => {
     const [annonces, setAnnonces] = useState([]);
     const [totalAdsCat, setTotalAdsCat] = useState(0);
     const [annoncesByPrice, setAnnoncesByPrice] = useState([]);
@@ -34,7 +33,7 @@ const Peniche = (props) => {
     
     
     let category = props.category;
-    category="Peniche";
+    category="Semi-Rigide";
     useEffect(()=>{
         getAllAdsByCat(category)
         .then((res)=>{
@@ -74,7 +73,7 @@ const Peniche = (props) => {
         const datas = {
             priceMax:rangevalMax,
             priceMin:rangevalMin,
-            category:"Peniche",
+            category:"Semi-Rigide",
             marque:marque
         }
         getAdsByPriceAndCat(datas)
@@ -109,16 +108,16 @@ const Peniche = (props) => {
         return (
             <main className='main_home'>
               
-              <header className='homeheaderPen'>
+              <header className='homeheader'>
               <img src={jetskimg} alt="logo application" className="logohome"/>
-                <h1 className='titlehomeski'>Peniche</h1>
+                <h1 className='titlehomeski'>Semi-Rigide</h1>
                 
               </header>
               {totalAdsCat>0? <div className='totalAds'>{`Nous avons ${totalAdsCat} Annonces`}</div>:<div className='totalAds_red'>{`Nous n'avons aucune annonce pour le moment qui correspond à la recherche`}</div>}
               
     
     
-              <h2> les meilleurs  Peniche  neuf et d'occasion</h2>
+              <h2> les meilleurs  Semi-Rigide neuf et d'occasion</h2>
               <div className='divider'></div>
               <div className='filtre'>
             
@@ -273,4 +272,4 @@ const Peniche = (props) => {
             </main>
         );
     }
-    export default Peniche;
+    export default Semirigide;

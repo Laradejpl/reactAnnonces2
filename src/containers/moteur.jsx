@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Accessoiresmg from '../assets/pharelogo.png'
+import jetskimg from '../assets/pharelogo.png'
 import logo from '../assets/point.png'
 import { BsSearch } from "react-icons/bs";
 import {Link} from 'react-router-dom';
@@ -20,7 +20,7 @@ import '../App.css';
 moment.locale('fr');
 
 
-const Accessoires = (props) => {
+const Moteur = (props) => {
 
 
 
@@ -38,7 +38,7 @@ const [Message, setMessage] = useState('');
 
 
 let category = props.category;
-category="Accessoires";
+category="Moteur";
 useEffect(()=>{
 	getAllAdsByCat(category)
 	.then((res)=>{
@@ -78,7 +78,7 @@ const onSubmitForm = () => {
 	const datas = {
 		priceMax:rangevalMax,
 		priceMin:rangevalMin,
-		category:"Accessoires",
+		category:"moteur",
 		marque:marque
 	}
 	getAdsByPriceAndCat(datas)
@@ -113,16 +113,16 @@ const onSubmitForm = () => {
     return (
         <main className='main_home'>
 		  
-		  <header className='homeheaderski'>
-		  <img src={Accessoiresmg} alt="logo application" className="logohome"/>
-			<h1 className='titlehomeski'>Accessoires</h1>
+		  <header className='homeheader'>
+		  <img src={jetskimg} alt="logo application" className="logohome"/>
+			<h1 className='titlehomeski'>Moteur</h1>
 			
 		  </header>
 		  {totalAdsCat>0? <div className='totalAds'>{`Nous avons ${totalAdsCat} Annonces`}</div>:<div className='totalAds_red'>{`Nous n'avons aucune annonce pour le moment qui correspond à la recherche`}</div>}
 		  
 
 
-		  <h2> les meilleurs  Accessoires d'occasion</h2>
+		  <h2>"moteur  en France</h2>
 		  <div className='divider'></div>
 		  <div className='filtre'>
 		
@@ -277,4 +277,4 @@ const onSubmitForm = () => {
 		</main>
     );
     }
-    export default Accessoires;
+    export default Moteur;
