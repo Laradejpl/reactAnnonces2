@@ -23,6 +23,7 @@ import localization from 'moment/locale/fr';
 import {selectUser} from '../slices/userSlice';
 import {useDispatch,useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
+import Meteo from '../components/meteo';
 
 
 
@@ -346,7 +347,7 @@ return (
 
             <h3 className='titledet'>{lastName}</h3>
             <div className='iconNtext'>
-            <BsTelephoneFill  style={{marginRight:5,fontSize:10}}/> <p className='descdetail'>{phone}</p>
+            <BsTelephoneFill  /> <p className='descdetail'>{phone}</p>
           
 
             </div>
@@ -358,6 +359,8 @@ return (
               <Link to={`/message/${idPosteur}/${id}`} className='MsgBtn'>Envoie lui un message</Link>
 
             </div>
+
+            <Meteo city={user.infos.city}/>
             
             <div className='divider'></div>
 

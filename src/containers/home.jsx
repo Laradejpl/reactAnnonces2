@@ -2,6 +2,7 @@ import React, { useState, useEffect , useRef} from 'react';
 import logo from '../assets/pharelogo.png'
 import modalimg from '../assets/voilier.png'
 import cookieImg from '../assets/cookimg.png'
+import pub from '../assets/pubmarine.jpg'
 
 import Connected from './connected';
 import Categories from './categories';
@@ -19,6 +20,8 @@ import ReactCardSlider from './ReactCardSlider';
 import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
+import Meteo from '../components/meteo';
+
 
 import '../Modal.css'
 
@@ -76,6 +79,7 @@ const Jetboat = (props) => {
 	   const [msg, setMsg] = useState('');
 	   const [trueCookie, setTrueCookie] = useState(false);
 	   const containa = useRef(null)
+	   const [homeMeteo, setHomeMeteo] = useState(true)
 	  
 	   
 
@@ -561,6 +565,7 @@ updateClickAds(locals.id)
 			 <div className='contversionHomeaside'>
 			 {( screenWidth > 500) && (
 			             <aside className='profil_aside'>
+						<Meteo />
 			                     <Connected/>
 			            </aside>)}
 
@@ -677,7 +682,7 @@ updateClickAds(ad.id)
 					   <span className='ads-card-date'>{moment(ad.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{ad.title}</p>
 								  <p className='ads-card-description'>{`${ad.description.substr(0, 80)} ...`}</p>
 								  <p className='slider-card-price'>{`${ad.price} €`}</p>
-								  <p className='ads-card-city'>{ad.city}</p>
+								  <span className='ads-card-city'>{ad.city}</span>
 
                 </div>
 			
@@ -749,7 +754,10 @@ updateClickAds(ad.id)
              </article>
               
 
+		<aside className='pub'>
+              <img src={pub} alt="Pub armée"  className='pubImgage'/>
 
+        </aside>
 
 
 

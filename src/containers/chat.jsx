@@ -3,7 +3,7 @@
     import { getAllMessagesByReceiverIdAndIdannonce,saveOneMessage} from '../api/messages';
     import {getOneAnnonce} from '../api/annonce'
     import lottie from 'lottie-web'
-    import ReactAudioPlayer from 'react-audio-player';
+   
   
   
   
@@ -196,25 +196,6 @@
         return () => clearInterval(interval);
       }, []);
 
-
-
-
-
-
-      <ReactAudioPlayer
-      src="notif.ogg"
-      autoPlay
-      controls
-    />
-
-
-      
-
-
-
-
-      
-         
 
 
 

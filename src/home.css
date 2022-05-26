@@ -88,8 +88,8 @@
     color: #ffffff;
     font-size: 30px;
     margin-top: 10px;
-    width: 70%;
-    margin: auto ;
+    width: 100%;
+    margin-left: 60px;
     padding:5px;
    
     background-color: rgb(125, 117, 244);
@@ -185,6 +185,21 @@
 }
 
   @media screen and (max-width: 500px){
+
+    .pop_title{
+        color: #ffffff;
+        font-size: 30px;
+        margin-top: 10px;
+        width: 100%;
+        margin: auto;
+        padding:5px;
+       
+        background-color: rgb(125, 117, 244);
+    }
+
+    .pub{
+        display: none;
+    }
 
     .Newletter{
        

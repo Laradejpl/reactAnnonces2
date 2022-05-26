@@ -164,8 +164,9 @@ const Profil = (props)=>{
 	
     return (
 		<div className='main_profile'>
-		<h2>Profil</h2>
-        <div className='row_cont'>
+		<h2> Votre Profile</h2>
+		<p>Vous pouvez voir vos messages et modifier votre avatar et renseignements.</p>
+        <div className='row_cont1'>
 		  
 			
 			{msg !== null && <p>{msg}</p>}
@@ -253,7 +254,7 @@ const Profil = (props)=>{
 						
 		              </Image>
 					<div>
-				         <p>{message.title}</p>
+				         <p>{`${message.title.substr(0, 80)} ...`}</p>
 						 <p>{`${message.price} €`}</p>
 					</div>
 					<div>

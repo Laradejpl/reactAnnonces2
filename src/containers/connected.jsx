@@ -49,10 +49,11 @@ import {getNbMessageByReceiverId} from '../api/messages';
 
 
     return (
+      
         <div className='connected_aside'>
+        
         <ul className="connected_ul">
 
-        
         <Link to="/profil" className="profile_link_connected_user">{ capitalize(user.infos.firstName)} </Link>
             {( screenWidth > 500) && (
             <div className='divider'></div>
