@@ -77,6 +77,15 @@
    
 
 }
+.plusads{
+    background-color: blue;
+    color: aliceblue;
+    width: 100px;
+    margin-left: 80%;
+    margin-top: 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
 .profil_aside_cat_jski{
     border: 2px solid rgb(239, 239, 239);
     border-radius: 5px;

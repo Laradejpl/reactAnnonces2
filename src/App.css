@@ -333,7 +333,14 @@
   background-color: rgb(253, 153, 175);
   box-shadow: 5px 5px 5px rgb(225, 241, 249);
 }
-
+.txteara{
+  width: 90%;
+  height: 200px;
+  border-radius: 15px;
+  border: 1px solid rgb(203, 203, 203);
+  
+  
+}
 
 
 
@@ -418,6 +425,12 @@
 }
 .imginfouser{
   width:100px;
+  margin: auto;
+}
+.imginfouserads{
+
+  width:100px;
+  height: 100px;
   margin: auto;
 }
 .iconNtext{

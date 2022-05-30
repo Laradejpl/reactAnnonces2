@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { useSelector } from "react-redux";
 import { selectUser } from '../slices/userSlice';
 import { capitalize } from '../helpers/toolbox';
-import { getAllAdsByUser,deleteAd,getNbAds,getAllAds,getAllAdsByCat } from '../api/annonce';
+import { getAllAdsByUser,deleteAd,getNbAds,getAllAds,getAllAdsByCat,getNbAdsByCat } from '../api/annonce';
 import { getAllUsers,deleteUser } from '../api/user';
 import {deleteOneNote,getAllNotes} from '../api/note';
 import missing from '../assets/missing.png'
@@ -38,7 +38,10 @@ moment.updateLocale('fr', localization);
   const [categorie, setCategorie] = useState('');
   const [userAffichage, setUserAffichage] = useState(false);
   const [noteAffichage, setNoteAffichage] = useState(false);
+  const [titleAdmin, setTitleAdmin] = useState('LES ANNONCES');
   const [allAnnonceAffichage, setAllAnnonceAffichage] = useState(false);
+  const [nbrUsers, setNbrUsers] = useState(0);
+  const [nbrNotes, setNbrNotes] = useState(0);
  
   const [nbAds, setNbAds] = useState(0);
 
@@ -46,7 +49,7 @@ moment.updateLocale('fr', localization);
     getAllAds()
     .then((res)=>{
       setAllAnnonces(res.ads)
-      setNbAds(allAnnonces.length)
+      //setNbAds(allAnnonces.length)
       setAllAnnonceAffichage(true)
       console.log("MES ANNONCES",res.ads);
 
@@ -58,10 +61,22 @@ moment.updateLocale('fr', localization);
       setError(true);
     }
     )
+
+    getNbAds()
+    .then((res)=>{
+      console.log(res);
+      setNbAds(res.result[0].total)
+    }
+    )
+    .catch((err)=>{
+      console.log(err);
+    }
+    )
+  },[])
    
    
 
-  }, [])
+
 
  
 
@@ -70,7 +85,7 @@ moment.updateLocale('fr', localization);
     .then((res)=>{
       setAllAnnoncesByCat(res.result)
       console.log("MES ANNONCES PAR CAT",res.result);
-      setNbAds(allAnnoncesByCat.length)
+      //setNbAds(allAnnoncesByCat.length)
     }
     )
     .catch((err)=>{
@@ -78,7 +93,23 @@ moment.updateLocale('fr', localization);
       setError(true);
     }
     )
+
+   
   }, [categorie])
+
+// le nombre total d'annonces
+useEffect(()=>{
+	getNbAdsByCat(categorie)
+	.then((res)=>{
+		setNbAds(res.result[0].totalbyCategory)
+	})
+	.catch((err)=>{
+		console.log(err);
+	})
+	
+		
+		
+},[categorie])
 
   useEffect(() => {
     getAllNotes()
@@ -86,6 +117,7 @@ moment.updateLocale('fr', localization);
       setAllNotes(res.ads)
       console.log("MES NOTES",res.ads);
       setNoteAffichage(true)
+      setNbrNotes(res.ads.length)
     }
     )
     .catch((err)=>{
@@ -102,8 +134,9 @@ moment.updateLocale('fr', localization);
     getAllUsers()
     .then((res)=>{
       setAllUsers(res.result)
-      
+      setNbrUsers(res.result.length)
       console.log("MES USERS",res.result);
+
     }
     )
     .catch((err)=>{
@@ -117,6 +150,9 @@ moment.updateLocale('fr', localization);
     const Utilisateurs = () => {
     setUserAffichage(true)
     setCategorie("")
+    setTitleAdmin('LES UTILISATEURS')
+    setNbAds(nbrUsers)
+    
     return (
       <div className="admin_users">
        {allUsers.map(utilisateur => (
@@ -182,6 +218,8 @@ moment.updateLocale('fr', localization);
     
     setCategorie("")
     setUserAffichage(false)
+    setTitleAdmin('LES NOTES')
+    setNbAds(nbrNotes)
     return (
       <div className="admin_users">
        {allNotes.map(note => (
@@ -266,6 +304,17 @@ moment.updateLocale('fr', localization);
             setUserAffichage(false)
             setNoteAffichage(false)
            setAllAnnonceAffichage(true)
+           setTitleAdmin('LES ANNONCES')
+           getNbAds()
+            .then(res=>{
+              setNbAds(res.result[0].total)
+              
+            }
+            )
+            .catch(err=>{
+              console.log(err);
+            }
+            )
             }}>Les annonces</li>
           <div className='divider_Admin'></div>
            {categorys.map((category, index) => (
@@ -277,6 +326,7 @@ moment.updateLocale('fr', localization);
                  setCategorie(category)
                  setUserAffichage(false)
                  setNoteAffichage(false)
+                 setTitleAdmin('LES ANNONCES')
                  setAllAnnonceAffichage(false)
                 
     
@@ -333,13 +383,13 @@ moment.updateLocale('fr', localization);
 
 
             <div className='cont_admin_annonces'>
-              <h1 className='titleAdmin'> <IoMdBoat /> Les annonces</h1>
+              <h1 className='titleAdmin'> <IoMdBoat /> {titleAdmin}</h1>
                <div className='divider_blanc'></div>
              
                 <div className='cont_admin_annonces_content'>
                   <div className='cont_admin_annonces_content_title'>
                  
-                   <p>Nombre d'annonces : <span className='nbAnnonces'>{nbAds}</span></p>
+                   <p>Nombre de references : <span className='nbAnnonces'>{nbAds}</span></p>
                      </div>
                     </div>
                   

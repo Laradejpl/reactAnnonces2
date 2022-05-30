@@ -31,6 +31,7 @@ import Semirigide from  './containers/semirigide';
 import Remorque from './containers/remorque';
 import Port from './containers/port';
 import Moteur from './containers/moteur';
+import Allads from './containers/allads';
 
 import {Routes, Route} from 'react-router-dom';
 import RequireAuth from './helpers/require-data-auth'
@@ -70,6 +71,7 @@ function App() {
           <Route exact path="/remorque" element={<RequireAuth child={Remorque} auth={true}/>}/>
           <Route exact path="/port" element={<RequireAuth child={Port} auth={true}/>}/>
           <Route exact path="/moteur" element={<RequireAuth child={Moteur} auth={true}/>}/>
+          <Route exact path="/allads" element={<RequireAuth child={Allads} auth={true}/>}/>
 
           
         

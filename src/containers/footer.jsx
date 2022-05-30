@@ -1,7 +1,7 @@
 import React,{useEffect,useRef} from 'react';
 import {Link} from 'react-router-dom';
 import lottie from 'lottie-web';
-
+import {BsFacebook,BsInstagram} from "react-icons/bs";
 
 //import { FcAssistant } from 'react-icons/fc';
 //import {FcShop} from 'react-icons/fc'
@@ -74,10 +74,7 @@ const Footer = (props)=>{
                     </p>
                     <div className='dividerfooter'></div>
                     <div className='socialfooter'>
-                         <div className='iconsocio' ref={sociowap} ></div>
-                         <div className='iconsocio  ' ref={socioinsta}></div>
-                        <div className='iconsocio' ref={sociotwitter}></div>
-                        <div className='iconsocio' ref={sociolinkedin}></div>
+                        
                          
                     </div>
                    

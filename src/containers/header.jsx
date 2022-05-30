@@ -47,8 +47,9 @@ const Header = (props)=>{
               <div className="list">
 				
 				    <div className='one'>
-				
+				   <Link to='/'> 
 					<img src={logo} alt="logo" onClick={toggleNav} className="logoboat"/> 
+				   </Link>
 				
 				    </div>
 				   {user.isLogged ? <div>

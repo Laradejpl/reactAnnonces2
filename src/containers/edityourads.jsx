@@ -16,6 +16,7 @@ import {selectUser} from '../slices/userSlice';
 import {loadUserAnnonces, selectAnnonces} from '../slices/annonceSlice';
 import moment from "moment";
 import "moment/locale/fr";
+import '../Modal.css'
 
 moment.locale("fr");
 
@@ -34,7 +35,8 @@ moment.locale("fr");
                       const [price, setPrice] = useState('');
                       const [category, setCategory] = useState('');
                       const [img, setImg] = useState(null);
-	                  const [picture,setPicture] = useState([])
+	                    const [picture,setPicture] = useState([])
+                      const [openModal, setOpenModal] = useState(false);
 
                       console.log(id);
                         useEffect(() => {
@@ -81,6 +83,7 @@ moment.locale("fr");
                                  
                                       setImg(annonce.annonce.imageUrl)
                                       setMsg("Vous avez bien ajouté vos images")
+                                    
                                   }else{
                                     setMsg("L'image n'a pas été ajouter");
                                   }
@@ -128,6 +131,36 @@ moment.locale("fr");
                                //ouverture de notre interface
                                 widget.open();
                               }
+                              const Modal = ({open,onClose}) => {
+  
+                                if(!open) return null  
+                              return (
+                                <div onClick={onClose} className='overlay'>
+                                    <div onClick={(e)=>{e.stopPropagation()}} 
+                                     className='modalContainer'>
+                                       
+                                      <div  className="modalRight">
+                                       <p onClick={onClose} className='closeBtn'>X</p>
+                                        
+                                        <div className="modalContent">
+                              
+                                             <h5>Message</h5>
+                                             <div className="divider"></div>
+                                             <p className='txt_cookie'>Votre annonce a été modifiée.</p>
+                                              
+                                             <div className="divider"></div>
+                                             <div className='row_cont'>
+                                           
+                            
+                                             </div>
+                              
+                                        </div>
+                                  
+                                      </div> 
+                                    </div>
+                                </div>
+                              )
+                              }
 
 
                             const onSubmitForm = ()=>{
@@ -145,11 +178,13 @@ moment.locale("fr");
                                    if(res.status === 200){
                                     getAllAdsByUser(user.infos.id)
                                        .then((response)=>{
+
                                          let myAnnonce = response.result
       
                                           dispatch(loadUserAnnonces(myAnnonce))
                                          
                                           setImg(response.result.imageUrl)
+                                          setOpenModal(true)
                                       })
       
                                           setMsg("Vous avez bien modifié votre annonce")
@@ -166,6 +201,9 @@ moment.locale("fr");
 
                                return (
                                 <div>
+                                   <Modal open={openModal} onClose={()=>{ 
+		                                         setOpenModal(false)
+		                                }} />
                               <h2> Mpdifiez votre annonce</h2>
                               {msg !== null && <p>{msg}</p>}
                               

@@ -80,7 +80,7 @@ const Annonce = (props) => {
                 <Link to={`/detail/${ads.id}`}>
                 <CloudinaryContext cloudName="dehjoundt">
                   <div className='ads-card-detail-infouser'>
-                    <Image publicId={ads.imageUrl} className='imginfouser'>
+                    <Image publicId={ads.imageUrl} className='imginfouserads'>
                       <Transformation quality="auto" fetchFormat="auto" />
                     </Image>
                    </div>

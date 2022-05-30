@@ -23,7 +23,7 @@ const Meteo = (props) => {
     useEffect(() => {
         const town=  user.infos.city
         setCity(town);
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${town}&appid=${apiKey}&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&appid=${apiKey}&units=metric`;
         fetch(url)
         .then(res => res.json())
         .then(data => {

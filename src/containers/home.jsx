@@ -17,7 +17,7 @@ import {getNbAds,getLastSixAds,getAdsByDistance,getAdsByKeyword,updateClickAds,g
 import {updateCooks} from '../api/user';
 import axios from 'axios';
 import ReactCardSlider from './ReactCardSlider';
-import { BsSearch } from "react-icons/bs";
+import { BsSearch,BsPlusCircleFill} from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {selectUser} from '../slices/userSlice';
 import Meteo from '../components/meteo';
@@ -263,6 +263,7 @@ const Modal = ({open,onClose}) => {
 				    lng={locals.lng}
 				    text="My Marker"
 		         >	
+						<Link to={"/detail/"+locals.id}>
 		        	<CloudinaryContext cloudName="dehjoundt">
 			            <div>
 			              <Image publicId={locals.imageUrl}  id ="MarkerImage" onClick={()=>{
@@ -284,7 +285,7 @@ updateClickAds(locals.id)
 			              </Image>
 			            </div>
 			         </CloudinaryContext>
-		          	<Link to={"/detail/"+locals.id}>{locals.title} </Link>
+		          	 </Link>
 			     </div>
                 
             )
@@ -691,6 +692,9 @@ updateClickAds(ad.id)
 					}
 					)}
 			 </div>
+			 <Link to='/allads'>
+			 <h6 className='plusads'>voir plus <BsPlusCircleFill/></h6>
+			 </Link>
 				</>
 				   ) : (
 					<>

@@ -127,27 +127,7 @@ const Post = (props)=>{
                         onSubmitForm();
                       }}
                     >
-                    
-                      <input
-                        type="text"
-                        name="title"
-                        placeholder="Titre"
-                        onChange={(e) => {
-                          setTitle(e.currentTarget.value);
-                        }}
-                      />
-                   
-                      <input
-                        
-                        type="text"
-                        name="description"
-                        placeholder='description'
-                        onChange={(e) => {
-                          setDescription(e.currentTarget.value);
-                        }}
-                      />
-                      
-                      <label className='labelcat'>Categorie</label>
+                          <label className='labelcat'>Categorie</label>
                   <select
                     name="category"
                     onChange={(e) => {
@@ -174,6 +154,27 @@ const Post = (props)=>{
                       </option>
                     ))}
                   </select>
+                    
+                      <input
+                        type="text"
+                        name="title"
+                        placeholder="Titre"
+                        onChange={(e) => {
+                          setTitle(e.currentTarget.value);
+                        }}
+                      />
+                   
+                      <textarea
+                         
+                        className='txteara'
+                        name="description"
+                        placeholder='description'
+                        onChange={(e) => {
+                          setDescription(e.currentTarget.value);
+                        }}
+                      />
+                      
+                
                        <input
                         type="text"
                         name="price"

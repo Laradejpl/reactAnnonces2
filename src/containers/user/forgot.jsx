@@ -2,12 +2,15 @@ import React, {useState,useEffect,useRef } from "react";
 import { Navigate, Link } from "react-router-dom";
 import lottie from 'lottie-web'
 import { forgotPassword } from "../../api/user";
+import '../../Modal.css'
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(null);
   const containa = useRef(null)
+  const [openModal, setOpenModal] = useState(false);
+
 
   const onSubmitForm = () => {
     let data = {
@@ -15,12 +18,44 @@ const Forgot = () => {
     };
 		forgotPassword(data)
       .then((res) => {
-        setRedirect(true);
+       setOpenModal(true)
+       setRedirect(true);
       })
       .catch((err) => {
         console.log(err);
         setError(err);
       });
+  }
+  
+  const Modal = ({open,onClose}) => {
+  
+    if(!open) return null  
+  return (
+    <div onClick={onClose} className='overlay'>
+        <div onClick={(e)=>{e.stopPropagation()}} 
+         className='modalContainer'>
+           
+          <div  className="modalRight">
+           <p onClick={onClose} className='closeBtn'>X</p>
+            
+            <div className="modalContent">
+  
+                 <h5>Message</h5>
+                 <div className="divider"></div>
+                 <p className='txt_cookie'>Un email a été envoyer a votre adresse.</p>
+                  
+                 <div className="divider"></div>
+                 <div className='row_cont'>
+               
+
+                 </div>
+  
+            </div>
+      
+          </div> 
+        </div>
+    </div>
+  )
   }
 
   useEffect(() => {
@@ -35,6 +70,9 @@ const Forgot = () => {
   
   return (
     <div className="main_forget_cont">
+     <Modal open={openModal} onClose={()=>{ 
+		  setOpenModal(false)
+		 }} /> 
     <div className="log-container-img">
     <div className='containa' ref={containa}></div>
 					</div>
@@ -73,11 +111,7 @@ const Forgot = () => {
             </form>
 					</div>
           <div className="row_cont_center">
-					
-						<Link to="/login" className="link_forgot">S'identifier | </Link>
-					
-					
-						<Link to="/register" className="link_forgot"> S'enregistrer :</Link>
+			
 					
 				</div>
 					
