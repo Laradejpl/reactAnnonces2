@@ -5,9 +5,10 @@ import { capitalize } from '../helpers/toolbox';
 import { getAllAdsByUser,deleteAd,getNbAds,getAllAds,getAllAdsByCat,getNbAdsByCat } from '../api/annonce';
 import { getAllUsers,deleteUser } from '../api/user';
 import {deleteOneNote,getAllNotes} from '../api/note';
-import missing from '../assets/missing.png'
+
 import { FaStar,FaMarker,FaWindowClose } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
+import userpic from '../assets/user.png'
 
 import {
   Image,
@@ -163,9 +164,13 @@ useEffect(()=>{
            
            <CloudinaryContext cloudName="dehjoundt">
              <div className='ads-card-detail-infouser'>
-               <Image publicId={utilisateur.imageUser} className='imginfouser'>
+             {utilisateur.imageUser ? (
+              <Image publicId={utilisateur.imageUser} className='imginfouser'>
                  <Transformation quality="auto" fetchFormat="auto" />
-               </Image>
+               </Image>) : (
+                <img src={userpic} alt="missing" className='imginfouser'/>)
+               }
+               
                <h5 className='title_annonce'>{`${capitalize(utilisateur.firstName)}`}</h5>
             
             <h7 className='user-card-description'>{`${capitalize(utilisateur.lastName)}`}</h7>
@@ -179,14 +184,14 @@ useEffect(()=>{
             <h6 className='user_card'>{` Addresse: ${capitalize(utilisateur.city.substr(0, 30))} | ${capitalize(utilisateur.address)},${utilisateur.zip} `}</h6>
             <h7 className='user_card'>{` Email: ${utilisateur.email} | Tel :${utilisateur.phone} `}</h7>
             <h6 className='user-card-date_poster'>{` Incris depuis: ${moment(utilisateur.creationTimestamp).format('LL')}`}</h6>
-            <h6 className='user-card-date_poster'>{` Role : ${utilisateur.role}`}</h6>
+            <div className='cont_row_role'><h6>Role</h6> <h6 className='user_card_poster_role'>{`: ${utilisateur.role}`}</h6></div>
            
           </div>  
 
 
           </div>
         
-          <div className='EditionPalette' >
+          <div className='EditionPalette_user' >
           
            <FaWindowClose className='iconEdt' onClick={()=>{
             deleteUser(utilisateur.id)
@@ -246,7 +251,7 @@ useEffect(()=>{
 
           </div>
         
-          <div className='EditionPalette' >
+          <div className='EditionPalette_user' >
           
            <FaWindowClose className='iconEdt' onClick={()=>{
             deleteOneNote(note.id)
@@ -431,7 +436,7 @@ useEffect(()=>{
 
                </div>
              
-               <div className='EditionPalette' >
+               <div className='EditionPalette_user' >
                 <div className='iconEdt'>
 
                  <Link to={`/edityourads/${ads.id}`}><FaMarker /></Link>
@@ -495,7 +500,7 @@ useEffect(()=>{
 
                </div>
              
-               <div className='EditionPalette' >
+               <div className='EditionPalette_user' >
                 <div className='iconEdt'>
 
                  <Link to={`/edityourads/${aBc.id}`}><FaMarker /></Link>

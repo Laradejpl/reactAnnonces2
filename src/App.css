@@ -5,6 +5,13 @@
 
 
 }
+.cont_row_role{
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+
+
+}
 
 .descdetail{
   margin-right:5px;
@@ -873,6 +880,14 @@ li{
   
  
 }
+.imginfouser{
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
 .ads-card-date_poster{
  font-weight:lighter;
  font-size: 10px;
@@ -988,7 +1003,59 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   }
 
   /*pour voir les MEDIAS QUERIES LIGNE 838*/
+
 @media screen and (max-width: 500px){
+
+  .user_card{
+
+    font-size: 9px;
+  }
+  .info_annonce_poster{
+    margin-left: 0px;
+  }
+  .imginfouser{
+    width: 50px;
+    height: 50px;
+  }
+  .annonce_poster{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+    margin-top: 1%;
+    border-radius: 10px;
+    border: 1px solid rgb(234, 234, 234);
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+   
+  }
+  .EditionPalette{
+    display: flex;
+    flex-direction:column;
+   
+    height: 80px; 
+    width: 30px;   
+    box-shadow: 5px 5px 5px rgb(225, 241, 249);
+  
+    border-radius: 10px;
+    background-color: #ffffff;
+    
+  }
+  .imginfouserads{
+    width: 50px;
+    height:50px;
+    border-radius: 10px;
+    border: 1px solid rgb(234, 234, 234);
+   
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .title_annonce{
+    font-size: 12px;
+  }
+  p.ads-card-description{
+    font-size: 9px;
+  }
   .wide_message_eara{
     width: 100%;
     height: 250px;
@@ -1219,6 +1286,15 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   display: flex;
 
 }
+.mainContainerPoster{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  margin-bottom: 200px;
+
+}
+
 
 .Linkposter li{
   list-style-type: none;
@@ -1245,6 +1321,25 @@ box-shadow: none;
 height: 100px; 
 width: 90px;
 padding: 5px;
+
+
+}
+
+.user-card-description{
+  font-size: 9px;
+}
+
+.user-card-date_poster{
+  font-size: 9px;
+}
+.user_card_poster_role{
+  font-size: 12px;
+}
+
+.cont_row_role>h6{
+ 
+  font-size: 9px;
+  color: #00bcd4;
 
 
 }

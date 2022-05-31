@@ -46,7 +46,7 @@ const Posteur = (props) => {
     const [icone, setIcone] = useState('');
     const [urlOfWeather, setUrlOfWeather] = useState('');
     //const iconUrl = "http://openweathermap.org/img/w/" + icone + ".png"
-    const iconUrl = "http://openweathermap.org/img/w/"
+    const iconUrl = "https://openweathermap.org/img/w/"
 
     const apiKey = "391e323b0497a6560ceb8c50c68a01e3";
     
@@ -115,17 +115,6 @@ const Posteur = (props) => {
     setTitleValue("Toutes ces annonces");
   }
 
-
-    
-    
-    
-  
-
-  
-
-
-
- 
 
   return (
     <div>

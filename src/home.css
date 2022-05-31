@@ -297,3 +297,36 @@
  
 
   }
+
+
+
+
+  @media all and (min-width: 510px) and (max-width: 1280px)
+  {
+    .sectforcardss{
+    
+        max-height: 19%;
+        background-color: #f8f86200;
+        width:100%;
+       
+    }
+   
+    .ads-cardss{
+        width:20%;
+        max-height: 19%;
+        background:white;
+        border-radius: 10px;
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+        box-shadow: 2px 2px 2px rgb(0 0 0 / 12%);
+        cursor: pointer;
+    }
+    .searchBarhome{
+        margin-top: 10px;
+        
+    }
+  
+   
+  
+  }

@@ -27,6 +27,7 @@ const Annonce = (props) => {
     const [annonces, setAnnonces] = useState([]);
     const [error, setError] = useState(false);
     const [isActiv, setIsActiv] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
 
     useEffect(() => {
@@ -76,9 +77,9 @@ const Annonce = (props) => {
              <Fade right>
              <div className='containerCardwEdition'>
               <div className='annonce_poster'>
-               <div className='annonce_poster_img'>
-                <Link to={`/detail/${ads.id}`}>
-                <CloudinaryContext cloudName="dehjoundt">
+                <div className='annonce_poster_img'>
+                 <Link to={`/detail/${ads.id}`}>
+                 <CloudinaryContext cloudName="dehjoundt">
                   <div className='ads-card-detail-infouser'>
                     <Image publicId={ads.imageUrl} className='imginfouserads'>
                       <Transformation quality="auto" fetchFormat="auto" />
@@ -94,13 +95,45 @@ const Annonce = (props) => {
                   
                   <p className='ads-card-date_poster'>{moment(ads.creationTimestamp).format('LL')}</p>
                 
-               </div>  
+               </div> 
+               {( screenWidth < 500) && (
+
+                <div className='EditionPalette' >
+                 <div className='iconEdt'>
+
+                 <Link to={`/edityourads/${ads.id}`}><FaMarker style={{fontSize:10}}/></Link>
+                </div>
+                <FaWindowClose style={{fontSize:1}}  className='iconEdt'  onClick={()=>{
+                 deleteAd(ads.id)
+                  .then(res=>{
+                    setAnnonces(annonces.filter(annonce=>annonce.id !== ads.id))
+                    console.log("DELETE",res);
+                  }
+                  )
+                  .catch(err=>{
+                    console.log(err);
+                  }
+                  )
+                 
+                 
+                 
+                 
+                 }} />
+
+
+               </div> 
+
+
+				      
+				)}
+               
 
 
                </div>
-             
+               {( screenWidth >  500) && (
+
                <div className='EditionPalette' >
-                <div className='iconEdt'>
+                 <div className='iconEdt'>
 
                  <Link to={`/edityourads/${ads.id}`}><FaMarker /></Link>
                 </div>
@@ -123,6 +156,7 @@ const Annonce = (props) => {
 
 
                </div>
+               )}
               </div>
             </Fade>
 
