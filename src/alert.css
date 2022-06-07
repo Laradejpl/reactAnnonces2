@@ -1,0 +1,15 @@
+.alertPop{
+    background-color: blue;
+    margin-top: 150px;
+}
+.closeBtn{
+    position: relative;
+    right: 100px;
+    top: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+h3{
+    margin-top: 250px;
+} 

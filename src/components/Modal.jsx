@@ -18,9 +18,9 @@ import '../Modal.css'
 
                 
                 
-                 <h5>{props.mess}</h5>
+                 <h5>message</h5>
                  <div className="divider"></div>
-                 <p>{props.paragraphe}</p>
+                 <p> {props.message} </p>
                   
 
 

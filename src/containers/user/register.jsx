@@ -5,7 +5,7 @@ import {saveOneUser} from '../../api/user'
 import axios from 'axios'
 import { config } from "../../config";
 import Popup from '../../components/Modal'
-//import '../../Modal.css'
+import '../../Modal.css'
 
 
 const Register = (props)=>{
