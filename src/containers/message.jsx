@@ -17,7 +17,7 @@ const Message = (props) => {
     const [vide,setVide] = useState(true);
     const id = props.params.id
     const idannonce = props.params.idannonce
-    console.log("ID DE LANNONCE",idannonce);
+   
 
 
     const onSubmitForm = ()=>{

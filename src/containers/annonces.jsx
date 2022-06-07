@@ -101,9 +101,9 @@ const Annonce = (props) => {
                 <div className='EditionPalette' >
                  <div className='iconEdt'>
 
-                 <Link to={`/edityourads/${ads.id}`}><FaMarker style={{fontSize:10}}/></Link>
+                 <Link to={`/edityourads/${ads.id}`}><FaMarker className='iconEdt' /></Link>
                 </div>
-                <FaWindowClose style={{fontSize:1}}  className='iconEdt'  onClick={()=>{
+                <FaWindowClose  className='iconEdt'  onClick={()=>{
                  deleteAd(ads.id)
                   .then(res=>{
                     setAnnonces(annonces.filter(annonce=>annonce.id !== ads.id))

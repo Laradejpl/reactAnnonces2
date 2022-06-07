@@ -44,9 +44,12 @@
       const idannonce = props.params.idannonce
       const [tabchat,setTabchat] = useState([])
       const messagesEndRef = useRef(null)
+      const [loadingMsg,setLoadingMsg] = useState('Votre message...')
 
       
 
+  
+ 
 
 
 
@@ -84,6 +87,9 @@
                 setTitleMessage('')
                 setContentMessage('')
             }
+            setIsLoading(true)
+            //@TODO METTRE UN LOTTIE ANIMATION
+            setLoadingMsg('Chargement...')
            
         }
         )
@@ -106,6 +112,13 @@
     }, [])
 
 
+    const Lotiie =()=>{
+      return (
+        <div className='containar' ref={containar}></div>
+      )
+    }
+
+
     useEffect(() => {
       scrollToBottom()
     }, [tabchat]);
@@ -114,13 +127,15 @@
 
  const minuteurLoading = ()=>{
     setTimeout(()=>{
-        setIsLoading(false)
+       
     },5000)
  }
 
  const loadinglot = ()=>{
     setIsLoading(true)
     console.log("lLOADING LOADING")
+    
+    setLoadingMsg('Votre message...')
     minuteurLoading()
   }
   
@@ -166,9 +181,6 @@
         
 
 
-
-
-
             getAllMessagesByReceiverIdAndIdannonce(idPosteur,idannonce,idReceiver)
             .then(response=>{
               setMessagesPosteur(response.results)
@@ -181,7 +193,7 @@
 
                messageChat.sort(filterDate)
                setTabchat(messageChat)
-              //let messageTableaux = [res.results,response.results]
+            
               
             
             })
@@ -263,10 +275,11 @@
         <section>
         <div className='wide_message_eara'>
  
-
+       
     
 {tabchat.map((message,index)=>{
           return(
+            
             <div>
             <div  className = {message.role ==='receiver' ? 'row_message_bubble' :'row_message_bubble_red'} key={index}>
               <div className='row_message_left'>
@@ -290,12 +303,6 @@
         )
       }
      
- 
-      
-
-    
-
-
 
         </div>
 
@@ -314,7 +321,7 @@
 
          <div className="form-group">
                 
-                <textarea className="form-control" id="contentMessage" placeholder='votre message' value={contentMessage} required onChange={(e)=>{
+                <textarea className="form-control" id="contentMessage"    placeholder={loadingMsg}  value={contentMessage} required onChange={(e)=>{
 
                 setContentMessage(e.target.value)
                 setVide(false)

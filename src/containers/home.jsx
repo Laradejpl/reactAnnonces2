@@ -84,8 +84,7 @@ const Jetboat = (props) => {
 	   
 
 	   const handleCurrentValue = () => {
-		   console.log("VALEUR DE INPUTss",searchingInput.current.value)
-		   setKeywordValue(searchingInput.current.value)
+		  setKeywordValue(searchingInput.current.value)
 	   }
 	   
   //LES COOKIES
@@ -181,7 +180,7 @@ const Modal = ({open,onClose}) => {
             navigator.geolocation.getCurrentPosition((position) => {
 			 	
 			 	let coords = {lat: position.coords.latitude, lng: position.coords.longitude};
-			 	console.log(coords)
+			 	
 			 	setPosition(coords)
 			 	
             })
@@ -226,7 +225,7 @@ const Modal = ({open,onClose}) => {
 				    setAdsLocalized(res.result)
 				    setPosition(coords)
 				    setZoom(12)
-				    console.log(adsLocalized)
+				    
 				})
 				.catch(err=>console.log(err))
             }
@@ -245,10 +244,10 @@ const Modal = ({open,onClose}) => {
 		
 		getAdsByKeyword(data)
 		.then((res)=>{
-			console.log("KEYWORDs :",res.result);
+			
 			setAdsearch(res.result)
 			//setKeywordValue(null)
-			console.log(adsearch[0].title);
+			
 		})
 		.catch(err=>console.log(err))
 		
@@ -322,7 +321,7 @@ updateClickAds(locals.id)
 
 		getLastSixAds()
 		.then((res)=>{
-			console.log(res);
+			
 			setLastAds(res.ads)
 		}
 		)
@@ -332,7 +331,7 @@ updateClickAds(locals.id)
 
 		getAdsByClick()
 		.then((res)=>{
-			console.log("LES PLUS REGARDER",res.result);
+			
 			setAdsByClicks(res.result)
 		}
 		)

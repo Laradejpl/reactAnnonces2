@@ -68,7 +68,7 @@ const ReactCardSlider = (props) => {
            <div id="main-slider-container">
                
                 <div className='title_slider_home'>
-			    <h5 style={{marginLeft: -110}}>Top catégories</h5>
+			    <h5  className="titletopcat">Top catégories</h5>
                 
                </div>
                     <div id="slider">

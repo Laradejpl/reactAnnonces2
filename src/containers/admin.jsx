@@ -52,7 +52,7 @@ moment.updateLocale('fr', localization);
       setAllAnnonces(res.ads)
       //setNbAds(allAnnonces.length)
       setAllAnnonceAffichage(true)
-      console.log("MES ANNONCES",res.ads);
+   
 
 
     }
@@ -65,7 +65,7 @@ moment.updateLocale('fr', localization);
 
     getNbAds()
     .then((res)=>{
-      console.log(res);
+      
       setNbAds(res.result[0].total)
     }
     )
@@ -85,7 +85,7 @@ moment.updateLocale('fr', localization);
     getAllAdsByCat(categorie)
     .then((res)=>{
       setAllAnnoncesByCat(res.result)
-      console.log("MES ANNONCES PAR CAT",res.result);
+     
       //setNbAds(allAnnoncesByCat.length)
     }
     )
@@ -116,7 +116,7 @@ useEffect(()=>{
     getAllNotes()
     .then((res)=>{
       setAllNotes(res.ads)
-      console.log("MES NOTES",res.ads);
+      
       setNoteAffichage(true)
       setNbrNotes(res.ads.length)
     }
@@ -136,7 +136,7 @@ useEffect(()=>{
     .then((res)=>{
       setAllUsers(res.result)
       setNbrUsers(res.result.length)
-      console.log("MES USERS",res.result);
+     
 
     }
     )
@@ -197,7 +197,7 @@ useEffect(()=>{
             deleteUser(utilisateur.id)
              .then(res=>{
                setAllUsers(allUsers.filter(uSer=>uSer.id !== utilisateur.id))
-               console.log("DELETE",res);
+               
              }
              )
              .catch(err=>{
@@ -257,7 +257,7 @@ useEffect(()=>{
             deleteOneNote(note.id)
              .then(res=>{
                setAllNotes(allNotes.filter(avis=>avis.id !== note.id))
-               console.log("DELETE",res);
+              
              }
              )
              .catch(err=>{
@@ -445,7 +445,7 @@ useEffect(()=>{
                  deleteAd(ads.id)
                   .then(res=>{
                     setAllAnnonces(allAnnonces.filter(annonce=>annonce.id !== ads.id))
-                    console.log("DELETE",res);
+                   
                   }
                   )
                   .catch(err=>{
@@ -510,7 +510,7 @@ useEffect(()=>{
                   .then(res=>{
                     // eslint-disable-next-line no-self-compare
                     setAllAnnoncesByCat(allAnnoncesByCat.filter(allAnnonce=>allAnnonce.id !== aBc.id))
-                    console.log("DELETE",res);
+                    
                   }
                   )
                   .catch(err=>{

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { connectUser } from '../../slices/userSlice'
 import {Link} from 'react-router-dom';
 import lottie from 'lottie-web'
+import '../../Modal.css'
+
 
 const Login = (props)=>{
     
@@ -12,7 +14,7 @@ const Login = (props)=>{
     
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    
+    const [openModal, setOpenModal] = useState(false);
     const [redirect, setRedirect] = useState(false)
     const [error, setError] = useState(null)
     const containa = useRef(null)
@@ -45,7 +47,39 @@ const Login = (props)=>{
             }
         })
         .catch(err=>console.log(err))
+        setOpenModal(true);
     }
+
+    const Modal = ({open,onClose}) => {
+  
+        if(!open) return null  
+      return (
+        <div onClick={onClose} className='overlay'>
+            <div onClick={(e)=>{e.stopPropagation()}} 
+             className='modalContainer'>
+               
+              <div  className="modalRight">
+               <p onClick={onClose} className='closeBtn'>X</p>
+                
+                <div className="modalContent">
+      
+                     <h5>Message</h5>
+                     <div className="divider"></div>
+                     <p className='txt_cookie'>Il y a une erreur,réssayez .</p>
+                      
+                     <div className="divider"></div>
+                     <div className='row_cont'>
+                   
+    
+                     </div>
+      
+                </div>
+          
+              </div> 
+            </div>
+        </div>
+      )
+      }
     
     if(redirect){
         return <Navigate to="/"/>
@@ -53,6 +87,9 @@ const Login = (props)=>{
     
     return (
         <div className='container_loginl'>
+        <Modal open={openModal} onClose={()=>{ 
+		  setOpenModal(false)
+		 }} /> 
             <div className='containal' ref={containa}></div>
             <h1>Se connecter</h1>
             <div className='divider'></div>

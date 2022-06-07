@@ -42,7 +42,7 @@ category="Accessoires";
 useEffect(()=>{
 	getAllAdsByCat(category)
 	.then((res)=>{
-		console.log(res);
+		
 		setAnnonces(res.result)
 		
 
@@ -85,7 +85,7 @@ const onSubmitForm = () => {
 		.then((res) => {
 			setAnnoncesByPrice(res.result)
 			setSearchActiv(true)
-			console.log(" annonces trouvées",res.result.length)
+			
 			setTotalAdsCat(res.result.length)
 		
 			if(res.result.length===0){
@@ -96,7 +96,7 @@ const onSubmitForm = () => {
 			}
 			
 
-			console.log("FILTER",res.result);
+		
 		})
 		.catch((err) => {
 			console.log(err);

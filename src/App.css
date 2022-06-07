@@ -12,6 +12,15 @@
 
 
 }
+.iconBs{
+  color: #2314ea;
+  margin-top: -18px;
+  margin-right: 5px;
+   
+ }
+ .titletopcat{
+   margin-left: -110px;
+ }
 
 .descdetail{
   margin-right:5px;
@@ -1315,6 +1324,7 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   
 }
 
+
 .EditionPalette{
 border: none;
 box-shadow: none;
@@ -1323,6 +1333,10 @@ width: 90px;
 padding: 5px;
 
 
+}
+::placeholder #contentMessage{
+  color: blue;
+  font-size: 1.5em;
 }
 
 .user-card-description{
@@ -1343,6 +1357,7 @@ padding: 5px;
 
 
 }
+
 
 }
 

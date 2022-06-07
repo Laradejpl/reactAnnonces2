@@ -18,8 +18,8 @@ const Forgot = () => {
     };
 		forgotPassword(data)
       .then((res) => {
-       setOpenModal(true)
-       setRedirect(true);
+       setOpenModal(true);
+       //setRedirect(true);
       })
       .catch((err) => {
         console.log(err);

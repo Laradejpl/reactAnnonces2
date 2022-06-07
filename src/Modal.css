@@ -108,19 +108,20 @@ transition: color 200ms;
 
 
 @media screen and (max-width: 500px){
+   
     .modalContainer{
 
         flex-direction: column;
-        top: 7%;
+        top: 15%;
         left: 0;
         transform: none !important;
         width: 100%;
-        height:100vh;
+        height:50vh;
       
     }
 
     .imgModal{
-        width: 100%;
+        display: none;
         border-radius: 0px !important;
        
     }
@@ -129,5 +130,6 @@ transition: color 200ms;
        color: #ffffff;
 
     }
+  
 
 }

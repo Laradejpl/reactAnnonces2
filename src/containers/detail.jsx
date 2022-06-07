@@ -271,11 +271,11 @@ return (
            <p className='descdetail'>{description}</p>
            <div className='divider'></div>
            <div className='iconNtext'>
-               <BsFillCreditCardFill style={{marginRight:5}}/><p className='pricedetail'>{`Le prix: ${price}`} €</p>
+               <BsFillCreditCardFill  className="iconBs"/><p className='pricedetail'>{`Le prix: ${price}`} €</p>
            </div>
             <div className='divider'></div>
             <div className='iconNtext'>
-                 <BsFillGeoFill style={{marginRight:5}}/><p className='citydetail'>{`l'annonce se situe: ${city}`}</p>
+                 <BsFillGeoFill className="iconBs"/><p className='citydetail'>{`l'annonce se situe: ${city}`}</p>
             </div>
            
             <div className='divider'></div>
@@ -355,7 +355,7 @@ return (
             
             <Link to={`/posteur/${idPosteur}/`} className='modalBtn'>Voir son profil</Link>
             <div className='btnBlues'>
-              <BsChatRightQuoteFill style={{marginRight:5}}/>
+              <BsChatRightQuoteFill />
               <Link to={`/message/${idPosteur}/${id}`} className='MsgBtn'>Envoie lui un message</Link>
 
             </div>
