@@ -35,7 +35,7 @@ const Categories = (props)=>{
                         </div>
                         
                         <div className='container_cat_inter'>
-                        <li><Link to="/voillier"  className="profile_link">Voillier</Link></li>
+                        <li><Link to="/voillier"  className="profile_link">Voilier</Link></li>
                         {( screenWidth > 500) && (
                                     <div className='divider'></div>
   
@@ -53,7 +53,7 @@ const Categories = (props)=>{
                           </div>
                           
                           <div className='container_cat_inter'>
-                          <li><Link to="/yatch"  className="profile_link">Yatch</Link></li>
+                          <li><Link to="/yatch"  className="profile_link">Yacht</Link></li>
                           {( screenWidth > 500) && (
                                     <div className='divider'></div>
   
@@ -62,7 +62,7 @@ const Categories = (props)=>{
                           </div>
                           
                           <div className='container_cat_inter'>
-                          <li><Link to="/peniche"  className="profile_link">Peniche</Link></li>
+                          <li><Link to="/peniche"  className="profile_link">Péniche</Link></li>
                           {( screenWidth > 500) && (
                                     <div className='divider'></div>
   

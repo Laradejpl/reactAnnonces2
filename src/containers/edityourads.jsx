@@ -189,7 +189,7 @@ moment.locale("fr");
       
                                           setMsg("Vous avez bien modifié votre annonce")
                                       }else{
-                                             setMsg("L'annonce n'a pas été modifié");
+                                             setMsg("L'annonce n'a pas été modifier");
                                         }
                                      }
                                      )     
@@ -236,7 +236,7 @@ moment.locale("fr");
                                             showWidget();
                                           }}
                                       >
-                                          Modifiez les images de votre annonce
+                                          Modifiez les images de votre annonce.
                                       </button>
                                 <input 
                                   type="text" 

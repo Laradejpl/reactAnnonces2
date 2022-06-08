@@ -122,12 +122,12 @@ const Allads = (props) => {
               
             
     
-              <h2> les meilleurs annonces nautique neuf et d'occasion</h2>
+              <h2> Les meilleurs annonces nautiques neufs et d'occasions.</h2>
               <div className='divider'></div>
               <div className='filtre'>
             
             <div className='row_container_filter'>
-              <h6 className='title_filter_bar'>affinnez votre recherche</h6>
+              <h6 className='title_filter_bar'>Affinnez votre recherche.</h6>
               <div className='divider'></div>
               <form
                           className="filter-f"

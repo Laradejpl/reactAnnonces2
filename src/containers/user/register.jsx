@@ -4,7 +4,7 @@ import {Navigate,Link} from 'react-router-dom';
 import {saveOneUser} from '../../api/user'
 import axios from 'axios'
 import { config } from "../../config";
-import Popup from '../../components/Modal'
+import  ModalSimple from '../../components/PopUp'
 import '../../Modal.css'
 
 
@@ -24,42 +24,12 @@ const Register = (props)=>{
     const [error, setError] = useState(null);
     const [openModal, setOpenModal] = useState(false);
     const [modalmssg, setModalmssg] = useState('');
-    //let mess = props.mess;
-    //let paragraphe = props.paragraphe;
-    //mess="salut";
-    //paragraphe="je suis un paragraphe";
+    const  [isPopUp, setIsPopUp] = useState(false);
+   
 
  
-    const Modal = ({open,onClose}) => {
   
-      if(!open) return null  
-    return (
-      <div onClick={onClose} className='overlay'>
-          <div onClick={(e)=>{e.stopPropagation()}} 
-           className='modalContainer'>
-             
-            <div  className="modalRight">
-             <p onClick={onClose} className='closeBtn'>X</p>
-              
-              <div className="modalContent">
-    
-                   <h5>Message</h5>
-                   <div className="divider"></div>
-                   <p className='txt_cookie'>{modalmssg}</p>
-                    
-                   <div className="divider"></div>
-                   <div className='row_cont'>
-                 
-  
-                   </div>
-    
-              </div>
-        
-            </div> 
-          </div>
-      </div>
-    )
-    }
+
     const onSubmitForm = () => {
         axios.get(config.nominateam_url + address + " " + zip + " " + city +'&format=geocodejson')
         .then((res)=>{
@@ -94,20 +64,23 @@ const Register = (props)=>{
                     }
                 })
                 .catch(err => {
-                    //setError(err.response.data.message);
+                   
                     setError(error);
-                    setOpenModal(true);
-                    setModalmssg("probleme de connection");
+                
+                    setIsPopUp(true);
+                    setModalmssg("problème de connection");
                 })
             } else {
                 setError("Passwords do not match");
-                setOpenModal(true);
+              
+                setIsPopUp(true);
                 setModalmssg("Les mots de passe ne correspondent pas");
             }
           }else{
-            setError("Adresse invalide! FAUSSE ADRESSE")
-            setOpenModal(true);
-            setModalmssg("Adresse invalide! FAUSSE ADRESSE");
+            setError("Adresse invalide!")
+            
+            setIsPopUp(true);
+            setModalmssg("Adresse invalide!");
           }
           
         })
@@ -117,9 +90,19 @@ const Register = (props)=>{
     
     return (
         <div className='container_register'>
-         <Modal open={openModal} onClose={()=>{ 
+       { /* <Modal open={openModal} onClose={()=>{ 
 		  setOpenModal(false) 
-		 }} /> 
+		 }} /> */}
+
+     <ModalSimple titre={modalmssg}
+     content="Close"
+     
+     isPopUp={isPopUp}
+     onClickClose={()=>{
+        setIsPopUp(false)
+      }}/>
+        
+        
         {redirect && <Navigate to="/" />}
               <h1 className="c-g title2">
                Enregitrez vous

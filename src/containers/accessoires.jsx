@@ -122,7 +122,7 @@ const onSubmitForm = () => {
 		  
 
 
-		  <h2> les meilleurs  Accessoires d'occasion</h2>
+		  <h2> les meilleurs  Accessoires d'occasions</h2>
 		  <div className='divider'></div>
 		  <div className='filtre'>
 		

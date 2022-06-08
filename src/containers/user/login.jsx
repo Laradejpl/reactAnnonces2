@@ -5,19 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { connectUser } from '../../slices/userSlice'
 import {Link} from 'react-router-dom';
 import lottie from 'lottie-web'
+import  ModalSimple from '../../components/PopUp'
 import '../../Modal.css'
 
 
 const Login = (props)=>{
     
     const dispatch = useDispatch()
-    
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [openModal, setOpenModal] = useState(false);
     const [redirect, setRedirect] = useState(false)
-    const [error, setError] = useState(null)
     const containa = useRef(null)
+    const  [isPopUp, setIsPopUp] = useState(false);
     useEffect(() => {
         lottie.loadAnimation({
             container:containa.current,
@@ -47,39 +46,10 @@ const Login = (props)=>{
             }
         })
         .catch(err=>console.log(err))
-        setOpenModal(true);
+        setIsPopUp(true);
     }
 
-    const Modal = ({open,onClose}) => {
-  
-        if(!open) return null  
-      return (
-        <div onClick={onClose} className='overlay'>
-            <div onClick={(e)=>{e.stopPropagation()}} 
-             className='modalContainer'>
-               
-              <div  className="modalRight">
-               <p onClick={onClose} className='closeBtn'>X</p>
-                
-                <div className="modalContent">
-      
-                     <h5>Message</h5>
-                     <div className="divider"></div>
-                     <p className='txt_cookie'>Il y a une erreur,réssayez .</p>
-                      
-                     <div className="divider"></div>
-                     <div className='row_cont'>
-                   
     
-                     </div>
-      
-                </div>
-          
-              </div> 
-            </div>
-        </div>
-      )
-      }
     
     if(redirect){
         return <Navigate to="/"/>
@@ -87,9 +57,14 @@ const Login = (props)=>{
     
     return (
         <div className='container_loginl'>
-        <Modal open={openModal} onClose={()=>{ 
-		  setOpenModal(false)
-		 }} /> 
+      
+     <ModalSimple titre="Mot de passe et/ou email ne correspondent pas"
+     content="Close"
+     
+     isPopUp={isPopUp}
+     onClickClose={()=>{
+        setIsPopUp(false)
+      }}/>
             <div className='containal' ref={containa}></div>
             <h1>Se connecter</h1>
             <div className='divider'></div>
@@ -123,7 +98,7 @@ const Login = (props)=>{
 			
 				<input type="submit" name="Enregister" className="buttonsbmt"/>
                 <div>
-                    <Link to="/forgot" className='linkforgot'>Oublie du mot passe</Link>
+                    <Link to="/forgot" className='linkforgot'>Oublie du mot passe.</Link>
                 </div>
 	       </form>
            </div>

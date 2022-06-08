@@ -5,6 +5,8 @@ import '../Modal.css'
 import cookieImg from '../assets/cookimg.png'
 import {selectUser} from '../slices/userSlice';
 import {useSelector } from 'react-redux';
+import  ModalSimple from '../components/PopUp'
+import '../Modal.css'
 
 
 const Message = (props) => {
@@ -13,11 +15,11 @@ const Message = (props) => {
     const [message, setMessage] = useState({});
     const [titleMessage, setTitleMessage] = useState('');
     const [contentMessage, setContentMessage] = useState('');
-    const [openModal, setOpenModal] = useState(false);
+   
     const [vide,setVide] = useState(true);
     const id = props.params.id
     const idannonce = props.params.idannonce
-   
+    const  [isPopUp, setIsPopUp] = useState(false);
 
 
     const onSubmitForm = ()=>{
@@ -34,7 +36,7 @@ const Message = (props) => {
             setMessage(result)
 
             if(vide === false){
-                setOpenModal(true)
+                setIsPopUp(true)
                 setTitleMessage('')
                 setContentMessage('')
             }
@@ -47,42 +49,17 @@ const Message = (props) => {
         )
 
     }
-    const Modal = ({open,onClose}) => {
   
-        if(!open) return null  
-      return (
-        <div onClick={onClose} className='overlay'>
-            <div onClick={(e)=>{e.stopPropagation()}} 
-             className='modalContainer'>
-               
-              <div  className="modalRight">
-               <p onClick={onClose} className='closeBtn'>X</p>
-                
-                <div className="modalContent">
-      
-                     <h5>Message</h5>
-                     <div className="divider"></div>
-                     <p className='txt_cookie'>Vous avez envoyez un message au vendeur.  	</p>
-                      
-                     <div className="divider"></div>
-                     <div className='row_cont'>
-                   
-    
-                     </div>
-      
-                </div>
-          
-              </div> 
-            </div>
-        </div>
-      )
-      }
 
   return (
     <div className='formulaire_message'>
-    <Modal open={openModal} onClose={()=>{ 
-		  setOpenModal(false)
-		 }} /> 
+    <ModalSimple titre="Vous avez envoyez un message au vendeur."
+     content="Close"
+     
+     isPopUp={isPopUp}
+     onClickClose={()=>{
+        setIsPopUp(false)
+      }}/>
         <h1><span><BsChatRightQuoteFill/> </span>Envoyez un Message</h1>
 
         <div className='divider'></div>

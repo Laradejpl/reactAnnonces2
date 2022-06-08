@@ -151,11 +151,11 @@ const Detail = (props)=>{
         if(res.status === 200){
        
         console.log('le résultat',res);
-        setMsg('Vous avez notez le vendeur.');
+        setMsg('Vous avez noté le vendeur.');
         showModal();
         }else{
           console.log('le résultat',res);
-          setMsg('Vous avez déja notez le vendeur.');
+          setMsg('Vous avez déja noté le vendeur.');
           console.log(msg);
         }
       }
@@ -211,8 +211,8 @@ return (
       <header className='detailheader'>
 		           <img src={logo} alt="logo application" className="logohome"/>
                 <div className='bg_detail_header'>
-                     <h1 className='titledetailhead'> le Phare!</h1>
-			               <p className='pfdetail'>Une aventure ,une passion ,la mer vous attend...</p>
+                     <h1 className='titledetailhead'> Le Phare!</h1>
+			               <p className='pfdetail'>Une aventure ,une passion ,la mer vous attends...</p>
 
               </div>
 		
@@ -280,7 +280,7 @@ return (
            
             <div className='divider'></div>
             <div><h6> {msg}</h6></div>
-            <div><h5> Si vous avez achetez cette article, noté ce vendeur</h5></div>
+            <div><h5> Si vous avez acheté cette article, noté ce vendeur</h5></div>
             <form onSubmit={(e) => {
                         e.preventDefault();
                         onSubmitForm();
@@ -321,7 +321,7 @@ return (
             );
         })}
 
-        <p> la note est de {rating}</p>
+        <p> La note est de {rating}.</p>
 </div>
   <input type="submit" name="Enregister" className='btnOutline' />
   

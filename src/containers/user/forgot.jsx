@@ -2,6 +2,7 @@ import React, {useState,useEffect,useRef } from "react";
 import { Navigate, Link } from "react-router-dom";
 import lottie from 'lottie-web'
 import { forgotPassword } from "../../api/user";
+import  ModalSimple from '../../components/PopUp'
 import '../../Modal.css'
 
 const Forgot = () => {
@@ -9,7 +10,7 @@ const Forgot = () => {
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(null);
   const containa = useRef(null)
-  const [openModal, setOpenModal] = useState(false);
+  const  [isPopUp, setIsPopUp] = useState(false);
 
 
   const onSubmitForm = () => {
@@ -18,7 +19,7 @@ const Forgot = () => {
     };
 		forgotPassword(data)
       .then((res) => {
-       setOpenModal(true);
+        setIsPopUp(true);
        //setRedirect(true);
       })
       .catch((err) => {
@@ -27,36 +28,7 @@ const Forgot = () => {
       });
   }
   
-  const Modal = ({open,onClose}) => {
-  
-    if(!open) return null  
-  return (
-    <div onClick={onClose} className='overlay'>
-        <div onClick={(e)=>{e.stopPropagation()}} 
-         className='modalContainer'>
-           
-          <div  className="modalRight">
-           <p onClick={onClose} className='closeBtn'>X</p>
-            
-            <div className="modalContent">
-  
-                 <h5>Message</h5>
-                 <div className="divider"></div>
-                 <p className='txt_cookie'>Un email a été envoyer a votre adresse.</p>
-                  
-                 <div className="divider"></div>
-                 <div className='row_cont'>
-               
 
-                 </div>
-  
-            </div>
-      
-          </div> 
-        </div>
-    </div>
-  )
-  }
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -70,15 +42,19 @@ const Forgot = () => {
   
   return (
     <div className="main_forget_cont">
-     <Modal open={openModal} onClose={()=>{ 
-		  setOpenModal(false)
-		 }} /> 
+      <ModalSimple titre="Un email vous à été envoyer a cette adresse mail"
+     content="Close"
+     
+     isPopUp={isPopUp}
+     onClickClose={()=>{
+        setIsPopUp(false)
+      }}/>
     <div className="log-container-img">
     <div className='containa' ref={containa}></div>
 					</div>
       {redirect && <Navigate to="/forgot" />}
       <h1 className="c-g title2">
-				Bin <span className="santa-monica">,</span><span className="d">ca arrive même à des gens bien</span> <span>!</span>
+				Bin <span className="santa-monica">,</span><span className="d">ça arrive même à des gens bien.</span> <span>!</span>
 			</h1>
 			{error !== null && <p className="errorMsg">{error}</p>}
 			<div className="log-container bgc-bel-air">
@@ -96,7 +72,7 @@ const Forgot = () => {
             >
               <label>Email</label>
               <input
-                type="text"
+                type="email"
                 required
                 name="email"
                 onChange={(e) => {

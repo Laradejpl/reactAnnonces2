@@ -117,7 +117,7 @@ const Modal = ({open,onClose}) => {
   
 				 <h5>Bienvenue sur le Phare</h5>
 				 <div className="divider"></div>
-				 <p className='txt_cookie'>Afin de vous fournir la meilleure expérience possible, nous utilisons des cookies et d'autres technologies similaires dans un but de performance, de statistiques, de personnalisation, de publicité et pour aider le site à fonctionner.  	</p>
+				 <p className='txt_cookie'>Afin de vous fournir la meilleure expérience possible, nous utilisons des cookies et d'autres technologies similaires dans un but de performance,de statistique,de personnalisation,de publicité et pour aider le site à fonctionner.  	</p>
 				  
 				 <div className="divider"></div>
 				 <div className='row_cont'>
@@ -381,7 +381,7 @@ updateClickAds(locals.id)
         </li>
 			<div className='dropdown'>
 			  <li className='Sbli_menu'>
-				Gatégorie
+				Catégorie
 				<ul className='dropdown-content'>
 				
 				 {categorys.map((category, index) => (
@@ -432,8 +432,8 @@ updateClickAds(locals.id)
 	  
         <header className='homeheader'>
         <img src={logo} alt="logo application" className="logohome"/>
-          <h1 className='titlehome'>Bienvenues sur le Phare!</h1>
-          <p>Ici vous trouverez votre dernier bijoux nautique ,</p>
+          <h1 className='titlehome'>Bienvenue sur le Phare!</h1>
+          <p>Ici vous trouverez votre dernier bijou nautique.</p>
         </header>
 		
 	
@@ -581,7 +581,7 @@ updateClickAds(locals.id)
 
 			 {!KeywordValue && ( 
 			          <div>
-				        <h4 className='pop_title'>Les annonces les plus populaires</h4>
+				        <h4 className='pop_title'>Les annonces les plus populaires.</h4>
 
 				          <div className='divider'></div>
                       </div>
