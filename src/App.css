@@ -5,6 +5,12 @@
 
 
 }
+.noAd{
+background-image: url("assets/pharelogo.png");
+background-repeat: no-repeat;
+background-position: center;
+height: 500px;
+}
 .cont_row_role{
   display: flex;
   flex-direction: row;
@@ -1014,6 +1020,15 @@ box-shadow: 5px 5px 5px rgb(225, 241, 249);
   /*pour voir les MEDIAS QUERIES LIGNE 838*/
 
 @media screen and (max-width: 500px){
+
+  .noAd{
+    background-image: url("assets/pharelogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 100%;
+    color: #030305;
+    }
 
   .user_card{
 

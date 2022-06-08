@@ -28,6 +28,7 @@ const Annonce = (props) => {
     const [error, setError] = useState(false);
     const [isActiv, setIsActiv] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+    const [noAds, setNoAds] = useState('')
 
 
     useEffect(() => {
@@ -35,7 +36,9 @@ const Annonce = (props) => {
         getAllAdsByUser(id)
         .then((res)=>{
           setAnnonces(res.result)
-          console.log("MES ANNONCES",id);
+          if(res.result.length === 0){
+            setNoAds('Aucune annonce')
+          }
           
       
         })
@@ -59,6 +62,8 @@ const Annonce = (props) => {
 
    
 <h1 className='titlePosteur'> <IoMdBoat /> Mes annonces</h1>
+
+<h2 className='noAd'>{noAds}</h2>
 
 
 <div className='divider'></div>
