@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {Link, Navigate} from 'react-router-dom';
 import {FaWindowClose } from 'react-icons/fa';
-import {changeImg, getOneUser,updateUser} from '../api/user';
+import {changeImg, getOneUser,updateUser,deleteUser} from '../api/user';
 import { getInfoAdsByMessage,deleteMessageById} from '../api/messages';
+import userpic from '../assets/user.png'
+import  ModalSimple from '../components/PopUp'
+import '../Modal.css'
 import {
     Image,
     Video,
@@ -30,6 +33,8 @@ const Profil = (props)=>{
 	const [allMessages,setAllMessages] = useState([])
 	const [idMessage,setIdMessage] = useState(null)
 	const [message, setMessage] = useState({});
+	const  [isPopUp, setIsPopUp] = useState(false);
+	
 
 
     useEffect(()=>{
@@ -159,11 +164,21 @@ const Profil = (props)=>{
         .catch(err=>console.log("Echec modification image!"))
     }
 
-
+ 
+    if(redirect){
+        return <Navigate to="/login"/>
+    }
 
 	
     return (
 		<div className='main_profile'>
+			 <ModalSimple titre="Vous nous quittez ..."
+     content="Close"
+     
+     isPopUp={isPopUp}
+     onClickClose={()=>{
+        setIsPopUp(false)
+      }}/>
 		<h2> Votre Profile</h2>
 		<p>Vous pouvez voir vos messages et modifier votre avatar et renseignements.</p>
         <div className='row_cont1'>
@@ -179,14 +194,18 @@ const Profil = (props)=>{
                     onSubmitForm();
 	                }}
 	        >	
-	            {img !== null && <CloudinaryContext cloudName="dehjoundt">
+	            {user.infos.imageUser ? (<CloudinaryContext cloudName="dehjoundt">
 		            <div className='cadreImg'>
 		              <Image publicId={user.infos.imageUser} id="profilImg">
 		                <Transformation quality="auto" fetchFormat="auto" />
 		              </Image>
 		              
 		            </div>
-		         </CloudinaryContext>}
+		         </CloudinaryContext>):( 
+					  <div className='cadreImg'>
+					    <img src={userpic} alt="missingx" className='imginfouser_profil'/>
+					  </div>
+					  )}
 	            
 	            <button
     	            onClick={(e) => {
@@ -236,6 +255,21 @@ const Profil = (props)=>{
 			
 	            
 	            <input type="submit" name="Enregister"/>
+		   <h6 className='supprimer'  onClick={()=>{
+			   deleteUser(user.infos.id)
+			   .then(res=>{
+				setIsPopUp(true)
+				setRedirect(true)
+				
+			  }
+			  )
+			  .catch(err=>{
+				console.log(err);
+			  }
+			  )
+
+
+		   }}>Supprimer votre compte</h6>
 	       </form>
 
 		    <div className='message_eara'>
@@ -300,7 +334,7 @@ const Profil = (props)=>{
 		    </div>
 
 			
-
+         
 	    </div>
 		</div>
     )

@@ -28,7 +28,7 @@ const Annonce = (props) => {
     const [error, setError] = useState(false);
     const [isActiv, setIsActiv] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-    const [noAds, setNoAds] = useState('')
+    const [noAds,setNoAds]=useState('')
 
 
     useEffect(() => {
@@ -36,9 +36,11 @@ const Annonce = (props) => {
         getAllAdsByUser(id)
         .then((res)=>{
           setAnnonces(res.result)
-          if(res.result.length === 0){
-            setNoAds('Aucune annonce')
+          if(res.result.length === 0)
+          {
+            setNoAds('Aucune annonces...')
           }
+         
           
       
         })
@@ -62,7 +64,6 @@ const Annonce = (props) => {
 
    
 <h1 className='titlePosteur'> <IoMdBoat /> Mes annonces</h1>
-
 <h2 className='noAd'>{noAds}</h2>
 
 
@@ -96,7 +97,7 @@ const Annonce = (props) => {
               <div className='info_annonce_poster'>
                  <h5 className='title_annonce'>{`${ads.title.substr(0, 14)}`}</h5>
                  
-                 <p className='ads-card-description'>{`${ads.description.substr(0, 80)} ...`}</p>
+                 <p className='ads-card-description'>{`${ads.description.substr(0, 30)} ...`}</p>
                   
                   <p className='ads-card-date_poster'>{moment(ads.creationTimestamp).format('LL')}</p>
                 

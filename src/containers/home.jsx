@@ -627,7 +627,7 @@ updateClickAds(locals.id)
 					   </Link>
 
 					   <span className='ads-card-date'>{moment(bateau.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{bateau.title.substr(0, 20)}</p>
-								  <p className='ads-card-description'>{`${bateau.description.substr(0, 80)} ...`}</p>
+								  <p className='ads-card-description'>{`${bateau.description.substr(0, 30)} ...`}</p>
 								  <p className='slider-card-price'>{`${bateau.price} €`}</p>
 								  <p className='ads-card-city'>{bateau.city}</p>
 
@@ -679,8 +679,8 @@ updateClickAds(ad.id)
 			         </CloudinaryContext>
 					   </Link>
 
-					   <span className='ads-card-date'>{moment(ad.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{ad.title}</p>
-								  <p className='ads-card-description'>{`${ad.description.substr(0, 80)} ...`}</p>
+					   <span className='ads-card-date'>{moment(ad.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{`${ad.title.substr(0, 15)}...` }</p>
+								  <p className='ads-card-description'>{`${ad.description.substr(0, 30)} ...`}</p>
 								  <p className='slider-card-price'>{`${ad.price} €`}</p>
 								  <span className='ads-card-city'>{ad.city}</span>
 
@@ -729,7 +729,7 @@ updateClickAds(ad.id)
 					   </Link>
 
 					   <span className='ads-card-date'>{moment(ads.creationTimestamp).format("YYYY-MM-DD")}</span><p className='ads-card-title'>{ads.title}</p>
-								  <p className='ads-card-description'>{`${ads.description.substr(0, 80)} ...`}</p>
+								  <p className='ads-card-description'>{`${ads.description.substr(0, 40)} ...`}</p>
 								  <p className='slider-card-price'>{`${ads.price} €`}</p>
 								  <p className='ads-card-city'>{ads.city}</p>
 

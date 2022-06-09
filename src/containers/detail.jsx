@@ -9,8 +9,9 @@ import { BsSearch } from "react-icons/bs";
 import { FaStar } from 'react-icons/fa';
 import { BsFillGeoFill,BsFillCreditCardFill,BsTelephoneFill,BsChatRightQuoteFill } from "react-icons/bs";
 import '../Modal.css'
+import userpic from '../assets/user.png'
 
-//import Modal from '../components/Modal';
+
 
 import {
   Image,
@@ -110,7 +111,7 @@ const Detail = (props)=>{
 
         getLastTreeAdsByCat(categoryAds)
         .then(res => {
-          //console.log("LAST",res.ads);
+         
          
           setTreeAds(res.ads);
          
@@ -132,8 +133,7 @@ const Detail = (props)=>{
     
   };
 
-    //affichage du posteur de l'annonce
-    //console.log("LES TROIS ANNONCES",treeAds); 
+  
     const onSubmitForm = ()=>{
 
       const data = {
@@ -145,7 +145,7 @@ const Detail = (props)=>{
         id_posteur: idPosteur
       }
       saveOneNote(data)
-      //console.log("ONT SAUVEGARDE",data)
+      
       .then((res)=>{
 
         if(res.status === 200){
@@ -335,7 +335,9 @@ return (
     <article className='article-detail-user'>
        <div className='detail_annonce'>
        <h4>Publier par:</h4>
-       <CloudinaryContext cloudName="dehjoundt">
+
+     
+       {pictureUser ?(<CloudinaryContext cloudName="dehjoundt">
            <div className='ads-card-detail-infouser'>
  
 
@@ -343,22 +345,27 @@ return (
                       <Transformation quality="auto" fetchFormat="auto" />
                     </Image>
                   </div>
-               </CloudinaryContext>
-
-            <h3 className='titledet'>{lastName}</h3>
+               </CloudinaryContext>):( <img src={userpic} alt="missingx" className='imginfouser_profil'/>)}
+<h3 className='titledet'>{lastName}</h3>
             <div className='iconNtext'>
             <BsTelephoneFill  /> <p className='descdetail'>{phone}</p>
           
 
             </div>
            
-            
+            {lastName  ?(<div className='iconNtext'>
             <Link to={`/posteur/${idPosteur}/`} className='modalBtn'>Voir son profil</Link>
             <div className='btnBlues'>
               <BsChatRightQuoteFill />
               <Link to={`/message/${idPosteur}/${id}`} className='MsgBtn'>Envoie lui un message</Link>
 
             </div>
+            </div>
+            ):(
+              <div className='btnBlues'>
+              <h3 className='titledet'>annonce plus disponible</h3>
+            </div>
+            )}
 
             <Meteo city={user.infos.city}/>
             
