@@ -346,15 +346,22 @@ return (
                     </Image>
                   </div>
                </CloudinaryContext>):( <img src={userpic} alt="missingx" className='imginfouser_profil'/>)}
-<h3 className='titledet'>{lastName}</h3>
-            <div className='iconNtext'>
-            <BsTelephoneFill  /> <p className='descdetail'>{phone}</p>
+                       <h3 className='titledet'>{lastName}</h3>
+                       <div className='divider'></div>
+                       {lastName && <div className='iconNtext'>
+           <BsTelephoneFill  /> <p className='descdetail'>{phone}</p>
+            
           
 
-            </div>
+            </div>}
+       
+            
            
-            {lastName  ?(<div className='iconNtext'>
-            <Link to={`/posteur/${idPosteur}/`} className='modalBtn'>Voir son profil</Link>
+            {lastName  ?(<div className='cont_column'>
+            <div>
+              <Link to={`/posteur/${idPosteur}/`} className='modalBtn'>Voir son profil</Link>
+            </div>
+       
             <div className='btnBlues'>
               <BsChatRightQuoteFill />
               <Link to={`/message/${idPosteur}/${id}`} className='MsgBtn'>Envoie lui un message</Link>

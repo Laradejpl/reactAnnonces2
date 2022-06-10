@@ -7,6 +7,7 @@ import { FiWind} from 'react-icons/fi';
 import {getAllAdsByUser } from '../api/annonce';
 import {getAvgNotesByUser,getAllNotesByUser} from '../api/note';
 import {getOneUser} from '../api/user';
+import userpic from '../assets/user.png'
 import {
     Image,
     Video,
@@ -165,9 +166,9 @@ const Posteur = (props) => {
             <div className='ads-card-detail-infouser'>
  
 
-           <Image publicId={posteur.imageUser} className='imginfouser'>
+           {posteur.imageUrl ?(<Image publicId={posteur.imageUser} className='imginfouser'>
                       <Transformation quality="auto" fetchFormat="auto" />
-                    </Image>
+                    </Image>) : (<img src={userpic} alt="logo application" className='imginfouser'/>)}
                {/*
                <p>{`NOTE ${parseInt(noteAvg)} | 5 ` }</p>
 

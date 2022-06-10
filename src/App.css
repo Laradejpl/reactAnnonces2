@@ -1,4 +1,22 @@
-.container{}
+.cont_row_cont{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 15px auto;
+
+
+
+}
+.rounder_image{
+  border-radius: 80%;
+  width: 20px;
+  height: 40px;
+  
+}
+.leftie{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .App {
   text-align: center;
   margin: auto;
@@ -13,6 +31,18 @@
   background-position: center;
 
 }
+.midl{
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 40%;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
 .supprimer{
   font-size: 10px;
   color: #2314ea;
@@ -24,6 +54,24 @@
   font-size: 10px;
 
 
+}
+.form-border_right{
+  border-right: 1px solid #2314ea;
+  border-bottom-right-radius: 1px !important;
+  border-top-right-radius: 1px !important;
+ 
+  
+}
+
+.eye_reveal{
+  font-size: 15px !important;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  margin: 15px auto;
+  background-color: dodgerblue;
+ 
 }
 .iconBs{
   color: #2314ea;
@@ -79,6 +127,7 @@
   height: 60px;
   
 }
+
 .nameWithRound{
  margin-left: -20%;
   margin-top: -40px;
@@ -120,6 +169,12 @@
 .small_date{
   margin-left: 58%;
   margin-top: -40px;
+  margin-bottom: 20px;
+  font-size: 10px;
+}
+.small_date_noimg{
+  margin-left: 58%;
+  margin-top: 16px;
   margin-bottom: 20px;
   font-size: 10px;
 }
@@ -168,6 +223,11 @@
   width: 100%;
   background-color: #7bc1f3;
   
+}
+.row_space{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .formulaire_message{
  margin-top: 150px;

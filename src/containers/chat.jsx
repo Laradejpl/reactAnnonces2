@@ -3,10 +3,7 @@
     import { getAllMessagesByReceiverIdAndIdannonce,saveOneMessage} from '../api/messages';
     import {getOneAnnonce} from '../api/annonce'
     import lottie from 'lottie-web'
-   
-  
-  
-  
+    import userpic from '../assets/user.png'
     import {getOneUser} from '../api/user';
     import {IoChevronBackSharp,IoPaperPlaneSharp} from "react-icons/io5";
     
@@ -20,6 +17,7 @@
       import {selectUser,connectUser} from '../slices/userSlice';
       import axios from 'axios'
       import moment from "moment";
+      import Loader from '../components/Loader';
     moment.locale('fr');
     
     const Chat = (props) => {
@@ -45,6 +43,7 @@
       const [tabchat,setTabchat] = useState([])
       const messagesEndRef = useRef(null)
       const [loadingMsg,setLoadingMsg] = useState('Votre message...')
+      const [loader,setLoader] = useState(false)
 
       
 
@@ -88,9 +87,11 @@
                 setContentMessage('')
             }
             setIsLoading(true)
+            
             //@TODO METTRE UN LOTTIE ANIMATION
             setLoadingMsg('Chargement...')
-           
+            setLoader(true)
+            
         }
         )
         .catch((err)=>{
@@ -127,6 +128,8 @@
 
  const minuteurLoading = ()=>{
     setTimeout(()=>{
+      setLoader(false)
+     
        
     },5000)
  }
@@ -136,6 +139,7 @@
     console.log("lLOADING LOADING")
     
     setLoadingMsg('Votre message...')
+    
     minuteurLoading()
   }
   
@@ -213,14 +217,18 @@
 
       return (
         <main className="container">
+          <div className="midl">
+                {loader && <Loader/>}
+          </div>
        
         
       <div className="row_margin">
+      
           
 
        
         
-        <CloudinaryContext cloudName="dehjoundt">
+        { infosPosteur.imageUser ?(<CloudinaryContext cloudName="dehjoundt">
 		            <div className='row'>
                
 		              <Image publicId={infosPosteur.imageUser} id="rounder_img">
@@ -240,7 +248,20 @@
 				 </div>
 		            </div>
                 
-		         </CloudinaryContext>
+		         </CloudinaryContext>):( 
+             <article className='row_space'>
+                   <div className='row'>
+                         <img src={userpic} alt="missingx" className='rounder_image' />
+                        <h5 className=''>{infosPosteur.lastName}  </h5> 
+                   </div>
+					  
+              
+
+                <div className='small_date_noimg'>{` | Inscris depuis:  ${moment(infosPosteur.creationTimestamp).format("YYYY-MM-DD")}`}</div>
+             
+             </article>
+					  )}
+                <div className='divider'></div>
 
              <div className='row_marginInfo'>
 
