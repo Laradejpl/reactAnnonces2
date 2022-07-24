@@ -166,7 +166,7 @@ const Posteur = (props) => {
             <div className='ads-card-detail-infouser'>
  
 
-           {posteur.imageUrl ?(<Image publicId={posteur.imageUser} className='imginfouser'>
+           {posteur.imageUser ?(<Image publicId={posteur.imageUser} className='imginfouser'>
                       <Transformation quality="auto" fetchFormat="auto" />
                     </Image>) : (<img src={userpic} alt="logo application" className='imginfouser'/>)}
                {/*

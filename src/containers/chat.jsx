@@ -6,6 +6,7 @@
     import userpic from '../assets/user.png'
     import {getOneUser} from '../api/user';
     import {IoChevronBackSharp,IoPaperPlaneSharp} from "react-icons/io5";
+    import notif from '../assets/emailsouns.mp3'
     
     import {
         Image,
@@ -44,6 +45,7 @@
       const messagesEndRef = useRef(null)
       const [loadingMsg,setLoadingMsg] = useState('Votre message...')
       const [loader,setLoader] = useState(false)
+      const audioobject = new Audio(notif)
 
       
 
@@ -68,6 +70,8 @@
 
 
       const onSubmitForm = ()=>{
+
+        soundEffect()
         
         const data = {
           posteurId: user.infos.id,
@@ -87,10 +91,9 @@
                 setContentMessage('')
             }
             setIsLoading(true)
-            
-            //@TODO METTRE UN LOTTIE ANIMATION
             setLoadingMsg('Chargement...')
             setLoader(true)
+            
             
         }
         )
@@ -113,22 +116,25 @@
     }, [])
 
 
-    const Lotiie =()=>{
-      return (
-        <div className='containar' ref={containar}></div>
-      )
-    }
+  
 
 
     useEffect(() => {
       scrollToBottom()
+     
     }, [tabchat]);
 
+const soundEffect = () => {
 
+ 
+  audioobject.play()
+ 
+}
 
  const minuteurLoading = ()=>{
     setTimeout(()=>{
       setLoader(false)
+      
      
        
     },5000)
@@ -141,6 +147,7 @@
     setLoadingMsg('Votre message...')
     
     minuteurLoading()
+    
   }
   
 
@@ -177,6 +184,7 @@
 
             for(let i=0;i<res.results.length;i++){
               res.results[i].role="receiver"
+             
              messageChat.push(res.results[i])
             }
 

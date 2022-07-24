@@ -194,18 +194,19 @@ const Profil = (props)=>{
                     onSubmitForm();
 	                }}
 	        >	
-	            {user.infos.imageUser ? (<CloudinaryContext cloudName="dehjoundt">
+	           <CloudinaryContext cloudName="dehjoundt">
 		            <div className='cadreImg'>
-		              <Image publicId={user.infos.imageUser} id="profilImg">
+					{user.infos.imageUser ? (<Image publicId={user.infos.imageUser} id="profilImg">
 		                <Transformation quality="auto" fetchFormat="auto" />
 		              </Image>
-		              
-		            </div>
-		         </CloudinaryContext>):( 
+					  ):( 
 					  <div className='cadreImg'>
 					    <img src={userpic} alt="missingx" className='imginfouser_profil'/>
 					  </div>
 					  )}
+		              
+		            </div>
+		         </CloudinaryContext>
 	            
 	            <button
     	            onClick={(e) => {

@@ -158,6 +158,7 @@ const Post = (props)=>{
                       <input
                         type="text"
                         name="title"
+                        required
                         placeholder="Titre"
                         onChange={(e) => {
                           setTitle(e.currentTarget.value);
@@ -168,6 +169,7 @@ const Post = (props)=>{
                          
                         className='txteara'
                         name="description"
+                        required
                         placeholder='description'
                         onChange={(e) => {
                           setDescription(e.currentTarget.value);
@@ -178,6 +180,7 @@ const Post = (props)=>{
                        <input
                         type="text"
                         name="price"
+                        required
                         placeholder='price'
                         onChange={(e) => {
                           setPrice(e.currentTarget.value);
@@ -186,6 +189,7 @@ const Post = (props)=>{
                       <input
                          type="text"
                          name="address"
+                         required
                          placeholder='Adresse'
                           onChange={(e) => {
                             setAddress(e.currentTarget.value);
@@ -194,6 +198,7 @@ const Post = (props)=>{
                           <input
                             type="text"
                             name="zip"
+                            required
                             placeholder='Code postal'
                             onChange={(e) => {
                               setZip(e.currentTarget.value);
@@ -202,6 +207,7 @@ const Post = (props)=>{
                             <input
                               type="text"
                               name="city"
+                              required
                               placeholder='Ville'
                               onChange={(e) => {
                                 setCity(e.currentTarget.value);

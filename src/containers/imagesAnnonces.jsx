@@ -163,6 +163,7 @@ const ImagesAnnonces = (props)=>{
                         return (
                           <div className='form_img_uploader'>
                         <h2>annonces</h2>
+                        <p>Postez jusqu'a trois photos pour votre annonce.</p>
                         {msg !== null && <p>{msg}</p>}
                         
                             <br />
@@ -194,7 +195,7 @@ const ImagesAnnonces = (props)=>{
                                       showWidget();
                                     }}
                                 >
-                                    Ajoutez des images a votre annonces
+                                    Ajoutez TROIS images a votre annonces
                                 </button>
                           <input 
                             type="text" 
