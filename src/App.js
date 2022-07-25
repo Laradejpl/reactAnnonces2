@@ -32,6 +32,7 @@ import Remorque from './containers/remorque';
 import Port from './containers/port';
 import Moteur from './containers/moteur';
 import Allads from './containers/allads';
+import ChatSocket from './containers/chatSocket';
 
 
 import {Routes, Route} from 'react-router-dom';
@@ -73,6 +74,7 @@ function App() {
           <Route exact path="/port" element={<RequireAuth child={Port} auth={true}/>}/>
           <Route exact path="/moteur" element={<RequireAuth child={Moteur} auth={true}/>}/>
           <Route exact path="/allads" element={<RequireAuth child={Allads} auth={true}/>}/>
+          <Route exact path="/chatSocket" element={<RequireAuth child={ChatSocket} auth={true}/>}/>
         
 
           
